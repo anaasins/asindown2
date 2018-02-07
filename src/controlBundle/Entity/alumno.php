@@ -5,12 +5,12 @@ namespace controlBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * alumnos
+ * alumno
  *
- * @ORM\Table(name="alumnos")
- * @ORM\Entity(repositoryClass="controlBundle\Repository\alumnosRepository")
+ * @ORM\Table(name="alumno")
+ * @ORM\Entity(repositoryClass="controlBundle\Repository\alumnoRepository")
  */
-class alumnos
+class alumno
 {
     /**
      * @var int
@@ -308,6 +308,16 @@ class alumnos
      */
     private $documentosMatricula;
 
+    /**
+     * @var alumnoCurso[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="alumnos",cascade={"all"}, orphanRemoval=true)
+     */
+    protected $cursos;
+    public function __construct()
+    {
+        $this->cursos = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -324,7 +334,7 @@ class alumnos
      *
      * @param string $nombre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setNombre($nombre)
     {
@@ -348,7 +358,7 @@ class alumnos
      *
      * @param string $apellidos
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setApellidos($apellidos)
     {
@@ -372,7 +382,7 @@ class alumnos
      *
      * @param \DateTime $fechaNacimiento
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setFechaNacimiento($fechaNacimiento)
     {
@@ -396,7 +406,7 @@ class alumnos
      *
      * @param string $dni
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDni($dni)
     {
@@ -420,7 +430,7 @@ class alumnos
      *
      * @param string $localidad
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setLocalidad($localidad)
     {
@@ -444,7 +454,7 @@ class alumnos
      *
      * @param int $codigoPostal
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setCodigoPostal($codigoPostal)
     {
@@ -468,7 +478,7 @@ class alumnos
      *
      * @param string $direccion
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDireccion($direccion)
     {
@@ -492,7 +502,7 @@ class alumnos
      *
      * @param int $telfCasa
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setTelfCasa($telfCasa)
     {
@@ -516,7 +526,7 @@ class alumnos
      *
      * @param int $telf2
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setTelf2($telf2)
     {
@@ -540,7 +550,7 @@ class alumnos
      *
      * @param int $movil
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setMovil($movil)
     {
@@ -564,7 +574,7 @@ class alumnos
      *
      * @param string $nombrePadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setNombrePadre($nombrePadre)
     {
@@ -588,7 +598,7 @@ class alumnos
      *
      * @param string $apellidosPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setApellidosPadre($apellidosPadre)
     {
@@ -612,7 +622,7 @@ class alumnos
      *
      * @param string $direccionPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDireccionPadre($direccionPadre)
     {
@@ -636,7 +646,7 @@ class alumnos
      *
      * @param int $telfTrabajoPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setTelfTrabajoPadre($telfTrabajoPadre)
     {
@@ -660,7 +670,7 @@ class alumnos
      *
      * @param int $movilPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setMovilPadre($movilPadre)
     {
@@ -684,7 +694,7 @@ class alumnos
      *
      * @param string $profesionPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setProfesionPadre($profesionPadre)
     {
@@ -708,7 +718,7 @@ class alumnos
      *
      * @param \DateTime $fechaNacPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setFechaNacPadre($fechaNacPadre)
     {
@@ -732,7 +742,7 @@ class alumnos
      *
      * @param string $dniPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDniPadre($dniPadre)
     {
@@ -756,7 +766,7 @@ class alumnos
      *
      * @param string $correoPadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setCorreoPadre($correoPadre)
     {
@@ -780,7 +790,7 @@ class alumnos
      *
      * @param string $nombreMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setNombreMadre($nombreMadre)
     {
@@ -804,7 +814,7 @@ class alumnos
      *
      * @param string $apellidosMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setApellidosMadre($apellidosMadre)
     {
@@ -828,7 +838,7 @@ class alumnos
      *
      * @param string $direccionMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDireccionMadre($direccionMadre)
     {
@@ -852,7 +862,7 @@ class alumnos
      *
      * @param int $telfTrabajoMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setTelfTrabajoMadre($telfTrabajoMadre)
     {
@@ -876,7 +886,7 @@ class alumnos
      *
      * @param int $movilMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setMovilMadre($movilMadre)
     {
@@ -900,7 +910,7 @@ class alumnos
      *
      * @param string $profesionMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setProfesionMadre($profesionMadre)
     {
@@ -924,7 +934,7 @@ class alumnos
      *
      * @param \DateTime $fechaNacMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setFechaNacMadre($fechaNacMadre)
     {
@@ -948,7 +958,7 @@ class alumnos
      *
      * @param string $dniMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDniMadre($dniMadre)
     {
@@ -972,7 +982,7 @@ class alumnos
      *
      * @param string $correoMadre
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setCorreoMadre($correoMadre)
     {
@@ -996,7 +1006,7 @@ class alumnos
      *
      * @param string $diagnostico
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDiagnostico($diagnostico)
     {
@@ -1020,7 +1030,7 @@ class alumnos
      *
      * @param \DateTime $fechaAlta
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setFechaAlta($fechaAlta)
     {
@@ -1044,7 +1054,7 @@ class alumnos
      *
      * @param \DateTime $fechaBaja
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setFechaBaja($fechaBaja)
     {
@@ -1068,7 +1078,7 @@ class alumnos
      *
      * @param string $autorizacionImagen
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setAutorizacionImagen($autorizacionImagen)
     {
@@ -1092,7 +1102,7 @@ class alumnos
      *
      * @param string $consentimientoTelf
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setConsentimientoTelf($consentimientoTelf)
     {
@@ -1116,7 +1126,7 @@ class alumnos
      *
      * @param int $consentimientoTelfNumero
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setConsentimientoTelfNumero($consentimientoTelfNumero)
     {
@@ -1140,7 +1150,7 @@ class alumnos
      *
      * @param string $observaciones
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setObservaciones($observaciones)
     {
@@ -1164,7 +1174,7 @@ class alumnos
      *
      * @param string $fotoUsuario
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setFotoUsuario($fotoUsuario)
     {
@@ -1188,7 +1198,7 @@ class alumnos
      *
      * @param \DateTime $renovServef
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setRenovServef($renovServef)
     {
@@ -1212,7 +1222,7 @@ class alumnos
      *
      * @param string $centroAcademicoAnterior
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setCentroAcademicoAnterior($centroAcademicoAnterior)
     {
@@ -1236,7 +1246,7 @@ class alumnos
      *
      * @param string $inscripcionServef
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setInscripcionServef($inscripcionServef)
     {
@@ -1260,7 +1270,7 @@ class alumnos
      *
      * @param string $informePsico
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setInformePsico($informePsico)
     {
@@ -1284,7 +1294,7 @@ class alumnos
      *
      * @param string $documentosMatricula
      *
-     * @return alumnos
+     * @return alumno
      */
     public function setDocumentosMatricula($documentosMatricula)
     {
@@ -1301,5 +1311,39 @@ class alumnos
     public function getDocumentosMatricula()
     {
         return $this->documentosMatricula;
+    }
+
+    /**
+     * Add curso
+     *
+     * @param \controlBundle\Entity\alumnoCurso $curso
+     *
+     * @return alumno
+     */
+    public function addCurso(\controlBundle\Entity\alumnoCurso $curso)
+    {
+        $this->cursos[] = $curso;
+
+        return $this;
+    }
+
+    /**
+     * Remove curso
+     *
+     * @param \controlBundle\Entity\alumnoCurso $curso
+     */
+    public function removeCurso(\controlBundle\Entity\alumnoCurso $curso)
+    {
+        $this->cursos->removeElement($curso);
+    }
+
+    /**
+     * Get cursos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCursos()
+    {
+        return $this->cursos;
     }
 }

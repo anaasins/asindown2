@@ -156,4 +156,3 @@ class historialActuaciones
         return $this->conclusiones;
     }
 }
-
