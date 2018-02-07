@@ -5,13 +5,13 @@ namespace controlBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends Controller
+class AlumnoController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/historial")
      */
-    public function indexAction()
+    public function historialAction()
     {
-        return $this->render('controlBundle:Default:index.html.twig');
+        return $this->render('alumnos/historial.html.twig');
     }
 }
