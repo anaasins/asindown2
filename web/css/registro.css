@@ -1,23 +1,23 @@
 #controlbundle_usuarios_Insert{
-    color: #fff;
+  color: #fff;
     background-color: #007bff;
     border-color: #007bff;
     display: block;
     width: 100%;
     user-select: none;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s
+border: 1px solid transparent;
+padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+border-radius: .25rem;
+transition: color .15s 
 }
 .contenedor{
   width: 100%;
-  padding-left: 15px;
+  padding-left: 17px;
   margin-right: auto;
-  margin-left: 12%;
-  margin-top: -94px;
+  margin-left: 30%;
+  padding-top: 15%;
 }
 
 input,select{
