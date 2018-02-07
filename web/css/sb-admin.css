@@ -36,7 +36,10 @@ body.fixed-nav {
   background: rgba(52, 58, 64, 0.5);
   line-height: 45px;
 }
-
+#dataTable{
+  width: 200px;
+  margin-left: 210px;
+}
 .scroll-to-top:focus, .scroll-to-top:hover {
   color: white;
 }
@@ -475,4 +478,7 @@ footer.sticky-footer {
   body.sidenav-toggled footer.sticky-footer {
     width: calc(100% - 55px);
   }
+}
+#contenedor{
+  padding-left: 50%;
 }

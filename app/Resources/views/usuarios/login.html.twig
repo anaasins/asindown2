@@ -1,16 +1,39 @@
-{% block top100 %}
+
+{% block formulario %}
+ <link rel="stylesheet" href="{{ asset('css/formularios.css') }}" />
+ <!-- Bootstrap core CSS-->
+ <link href="{{ asset ('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+ <!-- Custom fonts for this template-->
+ <link href="{{ asset ('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+ <!-- Page level plugin CSS-->
+ <link href="{{ asset ('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+ <!-- Custom styles for this template-->
+ <link href="{{ asset ('css/sb-admin.css') }}" rel="stylesheet">
+ <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <body>
   {% if error %}
       <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
   {% endif %}
-<link rel="stylesheet" href="{{ asset('css/login.css') }}" />
-  <div class="wrapper">
-    <form class="form-signin" action="{{ path('login') }}" method="post">
-      <h2 class="form-signin-heading">Login</h2>
-      <input type="text" class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Email Address"/>
-      <input type="password" class="form-control" name="_password"id="password" placeholder="Password" required=""/>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-    </form>
+
+  <div id="formulario">
+    <img src="img/LogoAlto.jpg" id="logo" height="185px" width="280px">
+    <div class="contenedor">
+      <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Formulario</div>
+        <div class="card-body">
+          <form class="form-signin" action="{{ path('login') }}" method="post">
+            <label for="exampleInputEmail1">Usuario</label>
+            <input type="text" class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Usuario"/>
+            <br>
+            <label for="exampleInputEmail1">Contraseña</label>
+            <input type="password" class="form-control" name="_password"id="password" placeholder="Password" required=""/>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 {% endblock %}

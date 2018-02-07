@@ -1,4 +1,23 @@
+{% extends 'base.html.twig' %}
 {% block formulario %}
-<!-- <link rel="stylesheet" href="{{ asset('css/formtop100.css') }}" /> -->
-{{form(form)}}
+ <link rel="stylesheet" href="{{ asset('css/formularios.css') }}" />
+ <!-- Bootstrap core CSS-->
+ <link href="{{ asset ('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+ <!-- Custom fonts for this template-->
+ <link href="{{ asset ('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+ <!-- Page level plugin CSS-->
+ <link href="{{ asset ('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+ <!-- Custom styles for this template-->
+ <link href="{{ asset ('css/sb-admin.css') }}" rel="stylesheet">
+ <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+ <div class="content-wrapper">
+   <div class="container">
+     <div class="card card-login mx-auto mt-5">
+       <div class="card-header">Formulario</div>
+       <div class="card-body">
+         {{form(form)}}
+       </div>
+       </div>
+     </div>
+   </div>
 {% endblock %}
