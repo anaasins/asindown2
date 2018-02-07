@@ -7,11 +7,5 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class CursoController extends Controller
 {
-    /**
-     * @Route("/")
-     */
-    public function indexAction()
-    {
-        return $this->render('controlBundle:Default:index.html.twig');
-    }
+
 }
