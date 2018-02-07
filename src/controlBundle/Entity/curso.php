@@ -62,9 +62,17 @@ class curso
      * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="cursos",cascade={"all"}, orphanRemoval=true)
      */
     protected $alumnos;
+
+    /**
+     * @var profesorCurso[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="cursos",cascade={"all"}, orphanRemoval=true)
+     */
+    protected $profesores;
     public function __construct()
     {
         $this->alumnos = new ArrayCollection();
+        $this->profesores = new ArrayCollection();
     }
 
 
@@ -230,5 +238,39 @@ class curso
     public function getAlumnos()
     {
         return $this->alumnos;
+    }
+
+    /**
+     * Add profesore
+     *
+     * @param \controlBundle\Entity\profesorCurso $profesore
+     *
+     * @return curso
+     */
+    public function addProfesore(\controlBundle\Entity\profesorCurso $profesore)
+    {
+        $this->profesores[] = $profesore;
+
+        return $this;
+    }
+
+    /**
+     * Remove profesore
+     *
+     * @param \controlBundle\Entity\profesorCurso $profesore
+     */
+    public function removeProfesore(\controlBundle\Entity\profesorCurso $profesore)
+    {
+        $this->profesores->removeElement($profesore);
+    }
+
+    /**
+     * Get profesores
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProfesores()
+    {
+        return $this->profesores;
     }
 }

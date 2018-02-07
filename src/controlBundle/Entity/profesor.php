@@ -5,12 +5,12 @@ namespace controlBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * profesores
+ * profesor
  *
- * @ORM\Table(name="profesores")
- * @ORM\Entity(repositoryClass="controlBundle\Repository\profesoresRepository")
+ * @ORM\Table(name="profesor")
+ * @ORM\Entity(repositoryClass="controlBundle\Repository\profesorRepository")
  */
-class profesores
+class profesor
 {
     /**
      * @var int
@@ -42,6 +42,17 @@ class profesores
      */
     private $foto;
 
+    /**
+     * @var profesorCurso[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="profesores",cascade={"all"}, orphanRemoval=true)
+     */
+    protected $cursos;
+    public function __construct()
+    {
+        $this->cursos = new ArrayCollection();
+    }
+
 
     /**
      * Get id.
@@ -58,7 +69,7 @@ class profesores
      *
      * @param string $nombre
      *
-     * @return profesores
+     * @return profesor
      */
     public function setNombre($nombre)
     {
@@ -82,7 +93,7 @@ class profesores
      *
      * @param string $apellidos
      *
-     * @return profesores
+     * @return profesor
      */
     public function setApellidos($apellidos)
     {
@@ -106,7 +117,7 @@ class profesores
      *
      * @param string $foto
      *
-     * @return profesores
+     * @return profesor
      */
     public function setFoto($foto)
     {
@@ -123,5 +134,39 @@ class profesores
     public function getFoto()
     {
         return $this->foto;
+    }
+
+    /**
+     * Add curso
+     *
+     * @param \controlBundle\Entity\profesorCurso $curso
+     *
+     * @return profesor
+     */
+    public function addCurso(\controlBundle\Entity\profesorCurso $curso)
+    {
+        $this->cursos[] = $curso;
+
+        return $this;
+    }
+
+    /**
+     * Remove curso
+     *
+     * @param \controlBundle\Entity\profesorCurso $curso
+     */
+    public function removeCurso(\controlBundle\Entity\profesorCurso $curso)
+    {
+        $this->cursos->removeElement($curso);
+    }
+
+    /**
+     * Get cursos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCursos()
+    {
+        return $this->cursos;
     }
 }

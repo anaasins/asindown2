@@ -62,9 +62,17 @@ class curso
      * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="cursos",cascade={"all"}, orphanRemoval=true)
      */
     protected $alumnos;
+
+    /**
+     * @var profesorCurso[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="cursos",cascade={"all"}, orphanRemoval=true)
+     */
+    protected $profesores;
     public function __construct()
     {
         $this->alumnos = new ArrayCollection();
+        $this->profesores = new ArrayCollection();
     }
 
 
