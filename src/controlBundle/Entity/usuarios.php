@@ -3,6 +3,9 @@
 namespace controlBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * usuarios
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuarios")
  * @ORM\Entity(repositoryClass="controlBundle\Repository\usuariosRepository")
  */
-class usuarios
+class usuarios implements UserInterface
 {
     /**
      * @var int
@@ -34,7 +37,15 @@ class usuarios
      * @ORM\Column(name="password", type="string", length=64)
      */
     private $password;
-
+    /**
+   */
+   private $plainPassword;
+   /**
+    * @var string
+    *
+    * @ORM\Column(type="json_array")
+    */
+   private $roles=array();
     /**
      * @var string
      *
@@ -124,4 +135,33 @@ class usuarios
     {
         return $this->email;
     }
+    public function getPlainPassword()
+   {
+       return $this->plainPassword;
+   }
+
+   public function setPlainPassword($password)
+   {
+       $this->plainPassword = $password;
+   }
+   public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    public function getRoles()
+    {
+      return $this->roles;
+     }
+
+     public function eraseCredentials(){
+
+     }
 }
