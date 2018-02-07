@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use controlBundle\Entity\usuarios;
 use controlBundle\Form\usuariosType;
+use controlBundle\Form\usuariosDeleteInsertType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -52,7 +53,7 @@ class UsuariosController extends Controller
    public function borrarFormtop100( Request $request,$id)
    {
      $usuario = $this->getDoctrine()->getRepository('controlBundle:usuarios')->find($id);
-     $form=$this->createForm(usuariosType::Class, $usuario);
+     $form=$this->createForm(usuariosDeleteInsertType::Class, $usuario);
      $form->handleRequest($request);
 
      if ($form->isSubmitted() && $form->isValid())
@@ -72,7 +73,7 @@ public function registroAction(Request $request)
 {
     // 1) build the form
     $usuario = new usuarios();
-    $form = $this->createForm(usuariosType::class, $usuario);
+    $form = $this->createForm(usuariosDeleteInsertType::class, $usuario);
 
     // 2) handle the submit (will only happen on POST)
     $form->handleRequest($request);
