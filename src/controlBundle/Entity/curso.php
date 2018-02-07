@@ -64,6 +64,14 @@ class curso
     protected $alumnos;
 
     /**
+     * @var historialActuaciones[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="historialActuaciones", mappedBy="cursosAct",cascade={"all"}, orphanRemoval=true)
+     */
+    protected $alumnosAct;
+
+
+    /**
      * @var profesorCurso[]|ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="cursos",cascade={"all"}, orphanRemoval=true)
@@ -72,6 +80,7 @@ class curso
     public function __construct()
     {
         $this->alumnos = new ArrayCollection();
+        $this->alumnosAct = new ArrayCollection();
         $this->profesores = new ArrayCollection();
     }
 
@@ -220,6 +229,8 @@ class curso
         return $this;
     }
 
+
+
     /**
      * Remove alumno
      *
@@ -272,5 +283,39 @@ class curso
     public function getProfesores()
     {
         return $this->profesores;
+    }
+
+    /**
+     * Add alumnosAct
+     *
+     * @param \controlBundle\Entity\historialActuaciones $alumnosAct
+     *
+     * @return curso
+     */
+    public function addAlumnosAct(\controlBundle\Entity\historialActuaciones $alumnosAct)
+    {
+        $this->alumnosAct[] = $alumnosAct;
+
+        return $this;
+    }
+
+    /**
+     * Remove alumnosAct
+     *
+     * @param \controlBundle\Entity\historialActuaciones $alumnosAct
+     */
+    public function removeAlumnosAct(\controlBundle\Entity\historialActuaciones $alumnosAct)
+    {
+        $this->alumnosAct->removeElement($alumnosAct);
+    }
+
+    /**
+     * Get alumnosAct
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAlumnosAct()
+    {
+        return $this->alumnosAct;
     }
 }
