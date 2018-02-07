@@ -18,7 +18,7 @@ class UsuariosController extends Controller
    * @Route("/admin/listausuarios", name="listausuarios")
    */
 
-  public function Top100Action(Request $request)
+  public function listausuarios(Request $request)
   {
       // replace this example code with whatever you need
       $repository = $this->getDoctrine()->getRepository(usuarios::class);
