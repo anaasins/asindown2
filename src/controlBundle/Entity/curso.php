@@ -65,15 +65,14 @@ class curso
 
 
     /**
-     * @var profesorCurso[]|ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="cursos",cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="curso")
+     * @ORM\OrderBy({"order_id" = "ASC"})
      */
-    protected $profesores;
+    protected $cursoProfesores;
     public function __construct()
     {
         $this->cursoAlumnos = new ArrayCollection();
-        $this->profesores = new ArrayCollection();
+        $this->cursoProfesores = new ArrayCollection();
     }
 
 
@@ -207,40 +206,6 @@ class curso
         return $this->valoracion;
     }
 
-    /**
-     * Add profesore
-     *
-     * @param \controlBundle\Entity\profesorCurso $profesore
-     *
-     * @return curso
-     */
-    public function addProfesore(\controlBundle\Entity\profesorCurso $profesore)
-    {
-        $this->profesores[] = $profesore;
-
-        return $this;
-    }
-
-    /**
-     * Remove profesore
-     *
-     * @param \controlBundle\Entity\profesorCurso $profesore
-     */
-    public function removeProfesore(\controlBundle\Entity\profesorCurso $profesore)
-    {
-        $this->profesores->removeElement($profesore);
-    }
-
-    /**
-     * Get profesores
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProfesores()
-    {
-        return $this->profesores;
-    }
-
 
     /**
      * Add cursoAlumno
@@ -274,5 +239,39 @@ class curso
     public function getCursoAlumnos()
     {
         return $this->cursoAlumnos;
+    }
+
+    /**
+     * Add cursoProfesore
+     *
+     * @param \controlBundle\Entity\profesorCurso $cursoProfesore
+     *
+     * @return curso
+     */
+    public function addCursoProfesore(\controlBundle\Entity\profesorCurso $cursoProfesore)
+    {
+        $this->cursoProfesores[] = $cursoProfesore;
+
+        return $this;
+    }
+
+    /**
+     * Remove cursoProfesore
+     *
+     * @param \controlBundle\Entity\profesorCurso $cursoProfesore
+     */
+    public function removeCursoProfesore(\controlBundle\Entity\profesorCurso $cursoProfesore)
+    {
+        $this->cursoProfesores->removeElement($cursoProfesore);
+    }
+
+    /**
+     * Get cursoProfesores
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCursoProfesores()
+    {
+        return $this->cursoProfesores;
     }
 }

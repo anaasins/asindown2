@@ -42,15 +42,14 @@ class profesor
      */
     private $foto;
 
-    /**
-     * @var profesorCurso[]|ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="profesores",cascade={"all"}, orphanRemoval=true)
+    //RELACIONES
+   /**
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="profesor")
      */
-    protected $cursos;
+    protected $profesorCursos;
     public function __construct()
     {
-        $this->cursos = new ArrayCollection();
+        $this->profesorCursos = new ArrayCollection();
     }
 
 

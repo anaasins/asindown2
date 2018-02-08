@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use controlBundle\Entity\profesor;
+use controlBundle\Form\profesorType;
 use Symfony\Component\HttpFoundation\Response;
 
 class ProfesorController extends Controller
@@ -35,5 +36,24 @@ class ProfesorController extends Controller
         return $this->render('profesores/id.html.twig',array("prof"=>$prof));
     }
 
+    /**
+     * @Route("/nuevoProfesor", name="nuevoProfesor")
+     */
+    public function nuevoProfesorAction(Request $request)
+    {
+      $profesores = new profesor();
+      $form = $this->createForm(profesorType::class, $profesores);
+
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+       $profesor = $form->getData();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($profesor);
+        $em->flush();
+
+       return $this->redirectToRoute('index');
+   }
+        return $this->render('profesores/nuevoProfesor.html.twig', array('form'=>$form->createView()));
+    }
 
 }

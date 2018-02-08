@@ -22,22 +22,15 @@ class profesorCurso
     private $id;
 
     /**
-     * @var profesor
-     *
-     * @ORM\ManyToOne(targetEntity="profesor", inversedBy="cursos",cascade={"persist"})
-     * @ORM\JoinColumn(name="profesores", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="curso", inversedBy="cursoProfesores")
+     * @ORM\JoinColumn(name="cursoProfesor_id", referencedColumnName="id")
      */
-    protected $profesores;
-
-
+    protected $curso;
     /**
-     * @var curso
-     *
-     * @ORM\ManyToOne(targetEntity="curso", inversedBy="alumnos",cascade={"persist"})
-     * @ORM\JoinColumn(name="cursos", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="profesor", inversedBy="profesorCursos")
+     * @ORM\JoinColumn(name="profesorCurso_id", referencedColumnName="id")
      */
-    protected $cursos;
-
+    protected $profesor;
 
     /**
      * @var int
@@ -55,54 +48,6 @@ class profesorCurso
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set curso
-     *
-     * @param integer $curso
-     *
-     * @return profesorCurso
-     */
-    public function setCurso($curso)
-    {
-        $this->curso = $curso;
-
-        return $this;
-    }
-
-    /**
-     * Get curso
-     *
-     * @return int
-     */
-    public function getCurso()
-    {
-        return $this->curso;
-    }
-
-    /**
-     * Set profesor
-     *
-     * @param integer $profesor
-     *
-     * @return profesorCurso
-     */
-    public function setProfesor($profesor)
-    {
-        $this->profesor = $profesor;
-
-        return $this;
-    }
-
-    /**
-     * Get profesor
-     *
-     * @return int
-     */
-    public function getProfesor()
-    {
-        return $this->profesor;
     }
 
     /**
@@ -127,5 +72,53 @@ class profesorCurso
     public function getAnyoImpartido()
     {
         return $this->anyoImpartido;
+    }
+
+    /**
+     * Set profesores
+     *
+     * @param \controlBundle\Entity\profesor $profesores
+     *
+     * @return profesorCurso
+     */
+    public function setProfesores(\controlBundle\Entity\profesor $profesores = null)
+    {
+        $this->profesores = $profesores;
+
+        return $this;
+    }
+
+    /**
+     * Get profesores
+     *
+     * @return \controlBundle\Entity\profesor
+     */
+    public function getProfesores()
+    {
+        return $this->profesores;
+    }
+
+    /**
+     * Set cursos
+     *
+     * @param \controlBundle\Entity\curso $cursos
+     *
+     * @return profesorCurso
+     */
+    public function setCursos(\controlBundle\Entity\curso $cursos = null)
+    {
+        $this->cursos = $cursos;
+
+        return $this;
+    }
+
+    /**
+     * Get cursos
+     *
+     * @return \controlBundle\Entity\curso
+     */
+    public function getCursos()
+    {
+        return $this->cursos;
     }
 }

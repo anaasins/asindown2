@@ -3,6 +3,7 @@
 namespace controlBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * profesor
@@ -24,33 +25,32 @@ class profesor
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidos", type="string", length=255)
+     * @ORM\Column(name="apellidos", type="string", length=255, nullable=true)
      */
     private $apellidos;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="foto", type="string", length=255)
+     * @ORM\Column(name="foto", type="string", length=255, nullable=true)
      */
     private $foto;
 
-    /**
-     * @var profesorCurso[]|ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="profesores",cascade={"all"}, orphanRemoval=true)
+    //RELACIONES
+   /**
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="profesor")
      */
-    protected $cursos;
+    protected $profesorCursos;
     public function __construct()
     {
-        $this->cursos = new ArrayCollection();
+        $this->profesorCursos = new ArrayCollection();
     }
 
 
@@ -137,36 +137,36 @@ class profesor
     }
 
     /**
-     * Add curso
+     * Add profesorCurso
      *
-     * @param \controlBundle\Entity\profesorCurso $curso
+     * @param \controlBundle\Entity\profesorCurso $profesorCurso
      *
      * @return profesor
      */
-    public function addCurso(\controlBundle\Entity\profesorCurso $curso)
+    public function addProfesorCurso(\controlBundle\Entity\profesorCurso $profesorCurso)
     {
-        $this->cursos[] = $curso;
+        $this->profesorCursos[] = $profesorCurso;
 
         return $this;
     }
 
     /**
-     * Remove curso
+     * Remove profesorCurso
      *
-     * @param \controlBundle\Entity\profesorCurso $curso
+     * @param \controlBundle\Entity\profesorCurso $profesorCurso
      */
-    public function removeCurso(\controlBundle\Entity\profesorCurso $curso)
+    public function removeProfesorCurso(\controlBundle\Entity\profesorCurso $profesorCurso)
     {
-        $this->cursos->removeElement($curso);
+        $this->profesorCursos->removeElement($profesorCurso);
     }
 
     /**
-     * Get cursos
+     * Get profesorCursos
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCursos()
+    public function getProfesorCursos()
     {
-        return $this->cursos;
+        return $this->profesorCursos;
     }
 }
