@@ -29,14 +29,12 @@ class usuariosType extends AbstractType
             'first_options'  => array('label' => 'Password'),
             'second_options' => array('label' => 'Repeat Password'),
         ))
-        ->add('roles', CollectionType::class, array(
-          'entry_type'   => ChoiceType::class,
-          'entry_options'  => array(
+        ->add('roles', ChoiceType::class, array(
+          'multiple'   => true,
             'choices'  => array(
               'Admin' => 'ROLE_ADMIN',
-              'User' => 'ROLE_USER',
+              'Profesor' => 'ROLE_PROFESOR',
             ),
-          ),
         ))
     ->add('Insert',SubmitType::class);
 
