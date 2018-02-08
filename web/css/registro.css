@@ -5,12 +5,13 @@
     display: block;
     width: 100%;
     user-select: none;
-border: 1px solid transparent;
-padding: .375rem .75rem;
-font-size: 1rem;
-line-height: 1.5;
-border-radius: .25rem;
-transition: color .15s 
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ;
+    margin-top: 10px;
 }
 .contenedor{
   width: 100%;
