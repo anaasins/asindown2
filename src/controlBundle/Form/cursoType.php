@@ -5,6 +5,8 @@ namespace controlBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class cursoType extends AbstractType
 {
@@ -13,7 +15,14 @@ class cursoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')->add('horas')->add('entidadPromotora')->add('fechasDeRealizacion')->add('valoracion');
+        $builder
+        ->add('nombre')
+        ->add('horas')
+        ->add('entidadPromotora')
+        ->add('fechasDeRealizacion')
+        ->add('valoracion')
+        ->add('Registrar', SubmitType::class)
+        ;
     }/**
      * {@inheritdoc}
      */
