@@ -1,3 +1,12 @@
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+{% extends 'base.html.twig' %}
+{% block nuevoAlumno %}
+<br><br><br><br><br>
+<link rel="stylesheet" href="css/estiloNuevoAlumno.css">
+    <div id="form">
+      <form class="" action="index.html" method="post">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+      </form>
+    </div>
+{% endblock %}
