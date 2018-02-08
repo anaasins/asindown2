@@ -59,168 +59,168 @@ class alumno
     /**
      * @var int
      *
-     * @ORM\Column(name="codigoPostal", type="integer")
+     * @ORM\Column(name="codigoPostal", type="integer", nullable=true)
      */
     private $codigoPostal;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="direccion", type="string", length=255)
+     * @ORM\Column(name="direccion", type="string", length=255, nullable=true)
      */
     private $direccion;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telfCasa", type="integer")
+     * @ORM\Column(name="telfCasa", type="integer", nullable=true)
      */
     private $telfCasa;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telf2", type="integer")
+     * @ORM\Column(name="telf2", type="integer", nullable=true)
      */
     private $telf2;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="movil", type="integer")
+     * @ORM\Column(name="movil", type="integer", nullable=true)
      */
     private $movil;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nombrePadre", type="string", length=255)
+     * @ORM\Column(name="nombrePadre", type="string", length=255, nullable=true)
      */
     private $nombrePadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidosPadre", type="string", length=255)
+     * @ORM\Column(name="apellidosPadre", type="string", length=255, nullable=true)
      */
     private $apellidosPadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="direccionPadre", type="string", length=255)
+     * @ORM\Column(name="direccionPadre", type="string", length=255, nullable=true)
      */
     private $direccionPadre;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telfTrabajoPadre", type="integer")
+     * @ORM\Column(name="telfTrabajoPadre", type="integer", nullable=true)
      */
     private $telfTrabajoPadre;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="movilPadre", type="integer")
+     * @ORM\Column(name="movilPadre", type="integer", nullable=true)
      */
     private $movilPadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="profesionPadre", type="string", length=255)
+     * @ORM\Column(name="profesionPadre", type="string", length=255, nullable=true)
      */
     private $profesionPadre;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaNacPadre", type="date")
+     * @ORM\Column(name="fechaNacPadre", type="date", nullable=true)
      */
     private $fechaNacPadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dniPadre", type="string", length=255)
+     * @ORM\Column(name="dniPadre", type="string", length=255, nullable=true)
      */
     private $dniPadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="correoPadre", type="string", length=255)
+     * @ORM\Column(name="correoPadre", type="string", length=255, nullable=true)
      */
     private $correoPadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nombreMadre", type="string", length=255)
+     * @ORM\Column(name="nombreMadre", type="string", length=255, nullable=true)
      */
     private $nombreMadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidosMadre", type="string", length=255)
+     * @ORM\Column(name="apellidosMadre", type="string", length=255, nullable=true)
      */
     private $apellidosMadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="direccionMadre", type="string", length=255)
+     * @ORM\Column(name="direccionMadre", type="string", length=255, nullable=true)
      */
     private $direccionMadre;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="telfTrabajoMadre", type="integer")
+     * @ORM\Column(name="telfTrabajoMadre", type="integer", nullable=true)
      */
     private $telfTrabajoMadre;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="movilMadre", type="integer")
+     * @ORM\Column(name="movilMadre", type="integer", nullable=true)
      */
     private $movilMadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="profesionMadre", type="string", length=255)
+     * @ORM\Column(name="profesionMadre", type="string", length=255, nullable=true)
      */
     private $profesionMadre;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaNacMadre", type="date")
+     * @ORM\Column(name="fechaNacMadre", type="date", nullable=true)
      */
     private $fechaNacMadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dniMadre", type="string", length=255)
+     * @ORM\Column(name="dniMadre", type="string", length=255, nullable=true)
      */
     private $dniMadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="correoMadre", type="string", length=255)
+     * @ORM\Column(name="correoMadre", type="string", length=255, nullable=true)
      */
     private $correoMadre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="diagnostico", type="string", length=255)
+     * @ORM\Column(name="diagnostico", type="string", length=255, nullable=true)
      */
     private $diagnostico;
 
@@ -234,77 +234,77 @@ class alumno
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaBaja", type="date")
+     * @ORM\Column(name="fechaBaja", type="date", nullable=true)
      */
     private $fechaBaja;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="autorizacionImagen", type="string", length=255)
+     * @ORM\Column(name="autorizacionImagen", type="string", length=255, nullable=true)
      */
     private $autorizacionImagen;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="consentimientoTelf", type="string", length=255)
+     * @ORM\Column(name="consentimientoTelf", type="string", length=255, nullable=true)
      */
     private $consentimientoTelf;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="consentimientoTelfNumero", type="integer")
+     * @ORM\Column(name="consentimientoTelfNumero", type="integer", nullable=true)
      */
     private $consentimientoTelfNumero;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="observaciones", type="string", length=255)
+     * @ORM\Column(name="observaciones", type="string", length=255, nullable=true)
      */
     private $observaciones;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fotoUsuario", type="string", length=255)
+     * @ORM\Column(name="fotoUsuario", type="string", length=255, nullable=true)
      */
     private $fotoUsuario;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="renovServef", type="date")
+     * @ORM\Column(name="renovServef", type="date", nullable=true)
      */
     private $renovServef;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="centroAcademicoAnterior", type="string", length=255)
+     * @ORM\Column(name="centroAcademicoAnterior", type="string", length=255, nullable=true)
      */
     private $centroAcademicoAnterior;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="inscripcionServef", type="string", length=255)
+     * @ORM\Column(name="inscripcionServef", type="string", length=255, nullable=true)
      */
     private $inscripcionServef;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="informePsico", type="string", length=255)
+     * @ORM\Column(name="informePsico", type="string", length=255, nullable=true)
      */
     private $informePsico;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="documentosMatricula", type="string", length=255)
+     * @ORM\Column(name="documentosMatricula", type="string", length=255, nullable=true)
      */
     private $documentosMatricula;
 

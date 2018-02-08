@@ -31,28 +31,28 @@ class curso
     /**
      * @var int
      *
-     * @ORM\Column(name="horas", type="integer")
+     * @ORM\Column(name="horas", type="integer", nullable=true)
      */
     private $horas;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="entidadPromotora", type="string", length=255)
+     * @ORM\Column(name="entidadPromotora", type="string", length=255, nullable=true)
      */
     private $entidadPromotora;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fechasDeRealizacion", type="string", length=255)
+     * @ORM\Column(name="fechasDeRealizacion", type="string", length=255, nullable=true)
      */
     private $fechasDeRealizacion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="valoracion", type="string", length=255)
+     * @ORM\Column(name="valoracion", type="string", length=255, nullable=true)
      */
     private $valoracion;
 
