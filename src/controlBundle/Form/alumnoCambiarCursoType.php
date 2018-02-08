@@ -5,10 +5,9 @@ namespace controlBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use controlBundle\Entity\curso;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class alumnoCursoType extends AbstractType
+class alumnoCambiarCursoType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -16,13 +15,12 @@ class alumnoCursoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('curso', EntityType::class, array(
-            'class'    => curso::class,
-            'multiple' => false,
-            'choice_label' => 'nombre'
-        ))
-        ->add('matricula')
-        ->add('asignaturasAprobadas')
+        ->add('nombre')
+        ->add('alumnoCursos',  CollectionType::class, array(
+           'entry_type'=> alumnoCursoType::class,
+           'allow_add'    => true,
+           'allow_delete' => true
+       ))
         ;
     }
     /**
@@ -31,7 +29,7 @@ class alumnoCursoType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'controlBundle\Entity\alumnoCurso'
+            'data_class' => 'controlBundle\Entity\alumno'
         ));
     }
 
@@ -40,7 +38,7 @@ class alumnoCursoType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'controlbundle_alumnocurso';
+        return 'controlbundle_alumno';
     }
 
 

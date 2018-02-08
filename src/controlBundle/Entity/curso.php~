@@ -3,6 +3,7 @@
 namespace controlBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * curso
@@ -31,37 +32,36 @@ class curso
     /**
      * @var int
      *
-     * @ORM\Column(name="horas", type="integer")
+     * @ORM\Column(name="horas", type="integer", nullable=true)
      */
     private $horas;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="entidadPromotora", type="string", length=255)
+     * @ORM\Column(name="entidadPromotora", type="string", length=255, nullable=true)
      */
     private $entidadPromotora;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fechasDeRealizacion", type="string", length=255)
+     * @ORM\Column(name="fechasDeRealizacion", type="string", length=255, nullable=true)
      */
     private $fechasDeRealizacion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="valoracion", type="string", length=255)
+     * @ORM\Column(name="valoracion", type="string", length=255, nullable=true)
      */
     private $valoracion;
 
     /**
-     * @var alumnoCurso[]|ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="cursos",cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="curso")
+     * @ORM\OrderBy({"order_id" = "ASC"})
      */
-    protected $alumnos;
+    protected $cursoAlumnos;
 
     /**
      * @var historialActuaciones[]|ArrayCollection
@@ -79,7 +79,7 @@ class curso
     protected $profesores;
     public function __construct()
     {
-        $this->alumnos = new ArrayCollection();
+        $this->cursoAlumnos = new ArrayCollection();
         $this->alumnosAct = new ArrayCollection();
         $this->profesores = new ArrayCollection();
     }
@@ -216,42 +216,6 @@ class curso
     }
 
     /**
-     * Add alumno
-     *
-     * @param \controlBundle\Entity\alumnoCurso $alumno
-     *
-     * @return curso
-     */
-    public function addAlumno(\controlBundle\Entity\alumnoCurso $alumno)
-    {
-        $this->alumnos[] = $alumno;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Remove alumno
-     *
-     * @param \controlBundle\Entity\alumnoCurso $alumno
-     */
-    public function removeAlumno(\controlBundle\Entity\alumnoCurso $alumno)
-    {
-        $this->alumnos->removeElement($alumno);
-    }
-
-    /**
-     * Get alumnos
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAlumnos()
-    {
-        return $this->alumnos;
-    }
-
-    /**
      * Add profesore
      *
      * @param \controlBundle\Entity\profesorCurso $profesore
@@ -283,5 +247,39 @@ class curso
     public function getProfesores()
     {
         return $this->profesores;
+    }
+
+    /**
+     * Add alumnosAct
+     *
+     * @param \controlBundle\Entity\historialActuaciones $alumnosAct
+     *
+     * @return curso
+     */
+    public function addAlumnosAct(\controlBundle\Entity\historialActuaciones $alumnosAct)
+    {
+        $this->alumnosAct[] = $alumnosAct;
+
+        return $this;
+    }
+
+    /**
+     * Remove alumnosAct
+     *
+     * @param \controlBundle\Entity\historialActuaciones $alumnosAct
+     */
+    public function removeAlumnosAct(\controlBundle\Entity\historialActuaciones $alumnosAct)
+    {
+        $this->alumnosAct->removeElement($alumnosAct);
+    }
+
+    /**
+     * Get alumnosAct
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAlumnosAct()
+    {
+        return $this->alumnosAct;
     }
 }

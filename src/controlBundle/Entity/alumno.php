@@ -25,35 +25,35 @@ class alumno
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidos", type="string", length=255)
+     * @ORM\Column(name="apellidos", type="string", length=255, nullable=true)
      */
     private $apellidos;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaNacimiento", type="date")
+     * @ORM\Column(name="fechaNacimiento", type="date", nullable=true)
      */
     private $fechaNacimiento;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dni", type="string", length=255)
+     * @ORM\Column(name="dni", type="string", length=255, nullable=true)
      */
     private $dni;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="localidad", type="string", length=255)
+     * @ORM\Column(name="localidad", type="string", length=255, nullable=true)
      */
     private $localidad;
 
@@ -228,7 +228,7 @@ class alumno
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaAlta", type="date")
+     * @ORM\Column(name="fechaAlta", type="date", nullable=true)
      */
     private $fechaAlta;
 
@@ -309,23 +309,14 @@ class alumno
      */
     private $documentosMatricula;
 
-    /**
-     * @var historialActuaciones[]|ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="historialActuaciones", mappedBy="alumnosAct",cascade={"all"}, orphanRemoval=true)
+    //RELACIONES
+   /**
+     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="alumno")
      */
-    protected $cursosAct;
-
-    /**
-     * @var alumnoCurso[]|ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="alumnos",cascade={"all"}, orphanRemoval=true)
-     */
-    protected $cursos;
+    protected $alumnoCursos;
     public function __construct()
     {
-        $this->cursosAct = new ArrayCollection();
-        $this->cursos = new ArrayCollection();
+        $this->alumnoCursos = new ArrayCollection();
     }
 
 
@@ -1324,70 +1315,36 @@ class alumno
     }
 
     /**
-     * Add curso
+     * Add alumnoCurso
      *
-     * @param \controlBundle\Entity\alumnoCurso $curso
+     * @param \controlBundle\Entity\alumnoCurso $alumnoCurso
      *
      * @return alumno
      */
-    public function addCurso(\controlBundle\Entity\alumnoCurso $curso)
+    public function addAlumnoCurso(\controlBundle\Entity\alumnoCurso $alumnoCurso)
     {
-        $this->cursos[] = $curso;
+        $this->alumnoCursos[] = $alumnoCurso;
 
         return $this;
     }
 
     /**
-     * Remove curso
+     * Remove alumnoCurso
      *
-     * @param \controlBundle\Entity\alumnoCurso $curso
+     * @param \controlBundle\Entity\alumnoCurso $alumnoCurso
      */
-    public function removeCurso(\controlBundle\Entity\alumnoCurso $curso)
+    public function removeAlumnoCurso(\controlBundle\Entity\alumnoCurso $alumnoCurso)
     {
-        $this->cursos->removeElement($curso);
+        $this->alumnoCursos->removeElement($alumnoCurso);
     }
 
     /**
-     * Get cursos
+     * Get alumnoCursos
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCursos()
+    public function getAlumnoCursos()
     {
-        return $this->cursos;
-    }
-
-    /**
-     * Add cursosAct
-     *
-     * @param \controlBundle\Entity\historialActuaciones $cursosAct
-     *
-     * @return alumno
-     */
-    public function addCursosAct(\controlBundle\Entity\historialActuaciones $cursosAct)
-    {
-        $this->cursosAct[] = $cursosAct;
-
-        return $this;
-    }
-
-    /**
-     * Remove cursosAct
-     *
-     * @param \controlBundle\Entity\historialActuaciones $cursosAct
-     */
-    public function removeCursosAct(\controlBundle\Entity\historialActuaciones $cursosAct)
-    {
-        $this->cursosAct->removeElement($cursosAct);
-    }
-
-    /**
-     * Get cursosAct
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCursosAct()
-    {
-        return $this->cursosAct;
+        return $this->alumnoCursos;
     }
 }

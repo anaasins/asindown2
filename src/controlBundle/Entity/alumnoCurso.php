@@ -22,21 +22,15 @@ class alumnoCurso
     private $id;
 
     /**
-     * @var alumno
-     *
-     * @ORM\ManyToOne(targetEntity="alumno", inversedBy="cursos",cascade={"persist"})
-     * @ORM\JoinColumn(name="alumnos", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="curso", inversedBy="cursoAlumnos")
+     * @ORM\JoinColumn(name="cursoAlumno_id", referencedColumnName="id")
      */
-    protected $alumnos;
-
-
+    protected $curso;
     /**
-     * @var curso
-     *
-     * @ORM\ManyToOne(targetEntity="curso", inversedBy="alumnos",cascade={"persist"})
-     * @ORM\JoinColumn(name="cursos", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="alumno", inversedBy="alumnoCursos")
+     * @ORM\JoinColumn(name="alumnoCurso_id", referencedColumnName="id")
      */
-    protected $cursos;
+    protected $alumno;
 
     /**
      * @var \DateTime
@@ -112,37 +106,13 @@ class alumnoCurso
     }
 
     /**
-     * Set alumno.
+     * Set curso
      *
-     * @param int $alumno
-     *
-     * @return alumnoCurso
-     */
-    public function setAlumno($alumno)
-    {
-        $this->alumno = $alumno;
-
-        return $this;
-    }
-
-    /**
-     * Get alumno.
-     *
-     * @return int
-     */
-    public function getAlumno()
-    {
-        return $this->alumno;
-    }
-
-    /**
-     * Set curso.
-     *
-     * @param int $curso
+     * @param \controlBundle\Entity\curso $curso
      *
      * @return alumnoCurso
      */
-    public function setCurso($curso)
+    public function setCurso(\controlBundle\Entity\curso $curso = null)
     {
         $this->curso = $curso;
 
@@ -150,9 +120,9 @@ class alumnoCurso
     }
 
     /**
-     * Get curso.
+     * Get curso
      *
-     * @return int
+     * @return \controlBundle\Entity\curso
      */
     public function getCurso()
     {
@@ -160,50 +130,26 @@ class alumnoCurso
     }
 
     /**
-     * Set cursos
+     * Set alumno
      *
-     * @param \controlBundle\Entity\curso $cursos
+     * @param \controlBundle\Entity\alumno $alumno
      *
      * @return alumnoCurso
      */
-    public function setCursos(\controlBundle\Entity\curso $cursos = null)
+    public function setAlumno(\controlBundle\Entity\alumno $alumno = null)
     {
-        $this->cursos = $cursos;
+        $this->alumno = $alumno;
 
         return $this;
     }
 
     /**
-     * Get cursos
-     *
-     * @return \controlBundle\Entity\curso
-     */
-    public function getCursos()
-    {
-        return $this->cursos;
-    }
-
-    /**
-     * Set alumnos
-     *
-     * @param \controlBundle\Entity\alumno $alumnos
-     *
-     * @return alumnoCurso
-     */
-    public function setAlumnos(\controlBundle\Entity\alumno $alumnos = null)
-    {
-        $this->alumnos = $alumnos;
-
-        return $this;
-    }
-
-    /**
-     * Get alumnos
+     * Get alumno
      *
      * @return \controlBundle\Entity\alumno
      */
-    public function getAlumnos()
+    public function getAlumno()
     {
-        return $this->alumnos;
+        return $this->alumno;
     }
 }
