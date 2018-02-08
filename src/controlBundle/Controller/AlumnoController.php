@@ -19,7 +19,7 @@ class AlumnoController extends Controller
     }
 
     /**
-     * @Route("/tabla")
+     * @Route("/tabla" , name="listalumnos")
      */
     public function tablaAction()
     {
