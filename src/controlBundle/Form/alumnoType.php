@@ -5,6 +5,8 @@ namespace controlBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class alumnoType extends AbstractType
 {
@@ -55,8 +57,10 @@ class alumnoType extends AbstractType
         ->add('inscripcionServef')
         ->add('informePsico')
         ->add('documentosMatricula')
+        ->add('Registrar', SubmitType::class)
         ;
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
