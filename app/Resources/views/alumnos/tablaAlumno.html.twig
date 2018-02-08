@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block tabla %}
+<br>
+<br>
+<br>
+<div class="card-header">
+  <i class="fa fa-table"></i>Alumnos
+</div>
+<div class="card-body">
+  <div class="table-responsive">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Fecha Nac.</th>
+            <th>DNI</th>
+            <th>Localidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Javi</td>
+            <td>Montañez</td>
+            <td>8/2/1996</td>
+            <td>21001667-V</td>
+            <td>Cullera</td>
+            <td>
+              <i class="fas fa-plus-square"></i>
+              <i class="fas fa-trash-alt"></i>
+              <i class="fas fa-edit"> </i>
+                <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                Mostrar más datos
+              </button>
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Alumno</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              </i>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

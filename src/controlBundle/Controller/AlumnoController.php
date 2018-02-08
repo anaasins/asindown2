@@ -19,6 +19,14 @@ class AlumnoController extends Controller
     }
 
     /**
+     * @Route("/tabla")
+     */
+    public function tablaAction()
+    {
+        return $this->render('alumnos/tablaAlumno.html.twig');
+    }
+
+    /**
      * @Route("/nuevoAlumno", name="nuevoAlumno")
      */
     public function nuevoAlumnoAction(Request $request)
