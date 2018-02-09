@@ -1,6 +1,7 @@
 {{ form_start(form) }}
   {{ form_errors(form)}}
   {{ form_row(form.nombre) }}
+  {{ form_row(form.apellidos) }}
   <ul id="cursos-fields-list"
       data-prototype="{{ form_widget(form.profesorCursos.vars.prototype)|e }}"
       data-widget-tags="{{ '<li></li>'|e }}">
