@@ -27,7 +27,7 @@ class ProfesorController extends Controller
   */
   public function idAction($id){
       $repository = $this->getDoctrine()->getRepository('controlBundle:profesor');
-      // find *id* cerveza
+      // find *id* profesor
       $prof = $repository->findOneById($id);
         if(!$prof){
           return $this->render('profesores/error.html.twig');
@@ -54,6 +54,39 @@ class ProfesorController extends Controller
        return $this->redirectToRoute('index');
    }
         return $this->render('profesores/nuevoProfesor.html.twig', array('form'=>$form->createView()));
+    }
+
+    /**
+     * @Route("/editarProfesor/{id}" , name="editarProfesor")
+     */
+    public function editarprofesorAction(Request $request, $id)
+    {
+      $profesor=$this->getDoctrine()->getRepository(profesor::class)->find($id);
+
+      $form=$this->createForm(profesorType::class, $profesor);
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+
+         $em = $this->getDoctrine()->getManager();
+         $em->persist($profesor);
+         $em->flush();
+
+         return $this->redirectToRoute('listaprofesores');
+       }
+
+      return $this-> render('profesores/editarprofesor.html.twig', array('form'=>$form->createView()));
+    }
+
+    /**
+     * @Route("/eliminarprofesor/{id}", name="eliminarprofesor")
+     */
+    public function eliminarprofesorAction($id)
+    {
+      $db=$this->getDoctrine()->getManager();
+      $eliminar = $db ->getRepository(profesor::class)->find($id);
+      $db->remove($eliminar);
+      $db->flush();
+        return $this->redirectToRoute('listaprofesores');
     }
 
 }
