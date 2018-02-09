@@ -1,45 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block listuser %}
+<br><br><br><br>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
     <title></title>
   </head>
   <body>
-    <br>
-    <br>
-    <!-- Example DataTables Card-->
-    <div class="card mb-3">
-      <div class="card-header">
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable"  cellspacing="0">
-            <thead>
-              <tr>
-                <th>Usuario</th>
-                <th>E-mail</th>
-                <th>Borrar</th>
-                <th>Actualizar</th>
-              </tr>
-            </thead>
-
+  <div class="table-users">
+    <div class="header">Usuarios</div>
+      <table cellspacing="0">
+       <tr>
+         <th>Usuario</th>
+         <th>Email</th>
+         <th>Borrar</th>
+         <th>Actualizar</th>
+       </tr>
     {% for item in user %}
-      <tbody>
         <tr>
           <td>{{ item.username }}</td>
           <td>{{ item.email }}</td>
-          <td><a class="form"href="{{ path('borrarUser',{'id':item.id}) }}" />Borrar</a></td>
-          <td><a class="form"href="{{ path('actualizaruser',{'id':item.id}) }}" />Actualizar</a></td>
+          <td><a class="delete"href="{{ path('borrarUser',{'id':item.id}) }}" />Borrar</a></td>
+          <td><a class="actu"href="{{ path('actualizaruser',{'id':item.id}) }}" />Actualizar</a></td>
         </tr>
-      </tbody>
     {% endfor %}
-
+        </tr>
       </table>
-      </div>
-     </div>
     </div>
-  </div>
 
   </body>
 </html>

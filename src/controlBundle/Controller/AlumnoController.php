@@ -29,6 +29,19 @@ class AlumnoController extends Controller
       $alumnos = $repository->findAll();
       return $this->render('alumnos/tablaAlumno.html.twig',array("alumno"=>$alumnos));
     }
+    /**
+    * @Route("/tabla/{id}", name="alumnoid")
+    */
+    public function alumnoidAction($id){
+        $repository = $this->getDoctrine()->getRepository(alumno::class);
+        // find *id* alumno
+        $alumno = $repository->findOneById($id);
+          if(!$alumno){
+            return $this->render('profesores/error.html.twig');
+          }
+          // hacer para que si esta vacio cuando llegue a id.twig
+          return $this->render('alumnos/tablaAlumno.html.twig',array("alumnoID"=>$alumno));
+      }
 
     /**
      * @Route("/nuevoAlumno", name="nuevoAlumno")
