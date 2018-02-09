@@ -46,7 +46,41 @@ class AlumnoController extends Controller
         $em->flush();
 
        return $this->redirectToRoute('listalumnos');
-   }
+     }
         return $this->render('alumnos/nuevoAlumno.html.twig', array('form'=>$form->createView()));
+    }
+
+    /**
+     * @Route("/editarAlumno/{id}" , name="editarAlumno")
+     */
+    public function editarAlumnoAction(Request $request, $id)
+    {
+      $alumno=$this->getDoctrine()->getRepository(alumno::class)->find($id);
+
+      $form=$this->createForm(alumnoType::class, $alumno);
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+
+         //$cerveza = $form->getData();
+         $em = $this->getDoctrine()->getManager();
+         $em->persist($alumno);
+         $em->flush();
+
+         return $this->redirectToRoute('listalumnos');
+       }
+
+      return $this-> render('alumnos/editarAlumno.html.twig', array('form'=>$form->createView()));
+    }
+
+    /**
+     * @Route("/eliminarAlumno/{id}", name="eliminarAlumno")
+     */
+    public function eliminarAlumnoAction($id)
+    {
+      $db=$this->getDoctrine()->getManager();
+      $eliminar = $db ->getRepository(alumno::class)->find($id);
+      $db->remove($eliminar);
+      $db->flush();
+        return $this->redirectToRoute('listaalumnos');
     }
 }
