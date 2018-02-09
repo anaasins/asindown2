@@ -15,7 +15,8 @@ class profesorCambiarCursoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nombre')
+        ->add('nombre', TextType::class, array('disabled' =>'true'))
+        ->add('apellidos', TextType::class, array('disabled' => 'true'))
         ->add('profesorCursos',  CollectionType::class, array(
            'entry_type'=> profesorCursoType::class,
            'allow_add'    => true,

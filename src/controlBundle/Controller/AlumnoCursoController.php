@@ -16,11 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
 class AlumnoCursoController extends Controller
 {
   /**
-     * @Route("/nuevoAlumnoCursos", name="nuevoAlumnoCursos")
+     * @Route("/nuevoAlumnoCursos/{id}", name="nuevoAlumnoCursos")
      */
-     public function nuevoAlumnoCursos(Request $request)
+     public function nuevoAlumnoCursos(Request $request, $id)
     {
-      $alumno = new alumno();
+      $alumno=$this->getDoctrine()->getRepository(alumno::class)->find($id);
       $form = $this->createForm(alumnoCambiarCursoType::class, $alumno);
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
