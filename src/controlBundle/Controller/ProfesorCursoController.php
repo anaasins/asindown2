@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ProfesorCursoController extends Controller
 {
   /**
-     * @Route("/nuevoProfesorCursos/{id}", name="nuevoProfesorCursos")
+     * @Route("admin/nuevoProfesorCursos/{id}", name="nuevoProfesorCursos")
      */
      public function nuevoProfesorCursos(Request $request, $id)
     {

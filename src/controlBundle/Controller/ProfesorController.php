@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ProfesorController extends Controller
 {
    /**
-   * @Route("/listaprofesores", name="listaprofesores")
+   * @Route("profesor/listaprofesores", name="listaprofesores")
    */
   public function listaprofesores(Request $request)
   {
@@ -37,7 +37,7 @@ class ProfesorController extends Controller
     }
 
     /**
-     * @Route("/nuevoProfesor", name="nuevoProfesor")
+     * @Route("admin/nuevoProfesor", name="nuevoProfesor")
      */
     public function nuevoProfesorAction(Request $request)
     {
@@ -57,7 +57,7 @@ class ProfesorController extends Controller
     }
 
     /**
-     * @Route("/editarProfesor/{id}" , name="editarProfesor")
+     * @Route("admin/editarProfesor/{id}" , name="editarProfesor")
      */
     public function editarprofesorAction(Request $request, $id)
     {
@@ -78,7 +78,7 @@ class ProfesorController extends Controller
     }
 
     /**
-     * @Route("/eliminarprofesor/{id}", name="eliminarprofesor")
+     * @Route("admin/eliminarprofesor/{id}", name="eliminarprofesor")
      */
     public function eliminarprofesorAction($id)
     {
