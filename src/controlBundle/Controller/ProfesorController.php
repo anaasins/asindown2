@@ -18,7 +18,7 @@ class ProfesorController extends Controller
   {
       // replace this example code with whatever you need
       $repository = $this->getDoctrine()->getRepository(profesor::class);
-      // find *all* jugadores
+      // find *all* profesores
       $prof = $repository->findAll();
       return $this->render('profesores/profesores.html.twig',array("prof"=>$prof));
   }

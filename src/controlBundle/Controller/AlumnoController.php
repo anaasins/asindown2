@@ -23,7 +23,11 @@ class AlumnoController extends Controller
      */
     public function tablaAction()
     {
-        return $this->render('alumnos/tablaAlumno.html.twig');
+      // replace this example code with whatever you need
+      $repository = $this->getDoctrine()->getRepository(alumno::class);
+      // find *all* alumnos
+      $alumnos = $repository->findAll();
+      return $this->render('alumnos/tablaAlumno.html.twig',array("alumno"=>$alumnos));
     }
 
     /**
@@ -41,7 +45,7 @@ class AlumnoController extends Controller
         $em->persist($alumno);
         $em->flush();
 
-       return $this->redirectToRoute('index');
+       return $this->redirectToRoute('listalumnos');
    }
         return $this->render('alumnos/nuevoAlumno.html.twig', array('form'=>$form->createView()));
     }
