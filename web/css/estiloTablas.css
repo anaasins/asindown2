@@ -5,7 +5,9 @@ body * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-
+#buscador{
+  margin-left: 74%;
+}
 .header {
   background-color: #032578;
   color: white;
