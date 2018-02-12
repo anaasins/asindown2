@@ -18,6 +18,7 @@
             <th>DNI</th>
             <th>Localidad</th>
             <th>Acciones</th>
+            <th>Borrar</th>
           </tr>
             {% for alumnos in alumno %}
                 <tr>
@@ -26,6 +27,8 @@
                 <td>{{alumnos.fechaNacimiento|date('d-m-Y')}}</td>
                 <td>{{alumnos.dni}}</td>
                 <td>{{alumnos.localidad}}</td>
+                <td>{{alumnos.localidad}}</td>
+                 <td><a href="{{ path('eliminarAlumno',{'id':alumnos.id}) }}">Borrar</a></td>
                 <td>
                   <i class="fas fa-plus-square"></i>
                   <i class="fas fa-trash-alt"></i>
