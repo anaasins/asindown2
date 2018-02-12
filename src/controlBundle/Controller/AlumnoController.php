@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class AlumnoController extends Controller
 {
     /**
-     * @Route("/profesor/historial")
+     * @Route("/varios/historial")
      */
     public function historialAction()
     {
@@ -19,16 +19,29 @@ class AlumnoController extends Controller
     }
 
     /**
-     * @Route("/varios/tabla" , name="listalumnos")
+     * @Route("/varios/alumnosActivos" , name="listaAlumnosActivos")
      */
-    public function tablaAction()
+    public function alumnosActivos()
     {
       // replace this example code with whatever you need
       $repository = $this->getDoctrine()->getRepository(alumno::class);
       // find *all* alumnos
-      $alumnos = $repository->findAll();
-      return $this->render('alumnos/tablaAlumno.html.twig',array("alumno"=>$alumnos));
+      $alumnos = $repository->findByActivo(1);
+      return $this->render('alumnos/tablaAlumnoActivo.html.twig',array("alumno"=>$alumnos));
     }
+
+    /**
+     * @Route("/varios/alumnosInactivos" , name="listaAlumnosInactivos")
+     */
+    public function alumnosInactivos()
+    {
+      // replace this example code with whatever you need
+      $repository = $this->getDoctrine()->getRepository(alumno::class);
+      // find *all* alumnos
+      $alumnos = $repository->findByActivo(0);
+      return $this->render('alumnos/tablaAlumnoInactivo.html.twig',array("alumno"=>$alumnos));
+    }
+
     /**
     * @Route("/varios/tabla/{id}", name="alumnoid")
     */
@@ -58,7 +71,7 @@ class AlumnoController extends Controller
         $em->persist($alumno);
         $em->flush();
 
-       return $this->redirectToRoute('listalumnos');
+       return $this->redirectToRoute('listaAlumnosActivos');
      }
         return $this->render('alumnos/nuevoAlumno.html.twig', array('form'=>$form->createView()));
     }
@@ -79,7 +92,7 @@ class AlumnoController extends Controller
          $em->persist($alumno);
          $em->flush();
 
-         return $this->redirectToRoute('listalumnos');
+         return $this->redirectToRoute('listaAlumnosActivos');
        }
 
       return $this-> render('alumnos/editarAlumno.html.twig', array('form'=>$form->createView()));
