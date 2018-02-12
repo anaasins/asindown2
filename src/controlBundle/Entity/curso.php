@@ -58,15 +58,15 @@ class curso
     private $valoracion;
 
     /**
-     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="curso")
-     * @ORM\OrderBy({"order_id" = "ASC"})
+     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="curso", cascade={"remove"})
+     *
      */
     protected $cursoAlumnos;
 
 
     /**
      * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="curso")
-     * @ORM\OrderBy({"order_id" = "ASC"})
+     *
      */
     protected $cursoProfesores;
     public function __construct()
