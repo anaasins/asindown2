@@ -1,53 +1,41 @@
 {% extends 'base.html.twig' %}
-{% block listaCursos %}
-<!DOCTYPE html>
+{% block tabla %}
+<br><br><br><br>
 <html>
   <head>
     <meta charset="utf-8">
-    < <link rel="stylesheet" href="{{ asset ('css/sb-admin.css')}}" />
+    <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
     <title></title>
-  </head>
-  <body>
-    <br>
-    <br>
-    <!-- Example DataTables Card-->
-    <div class="card mb-3">
-      <div class="card-header">
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable"  cellspacing="0">
-            <thead>
-      <tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Horas</th>
-        <th>Entidad Promotora</th>
-        <th>Fechas De Realizacion</th>
-        <th>Valoracion</th>
-        <th>Actualizar</th>
-        <th>Elimina</th>
-      </tr>
-       <tbody>
-    {% for item in curso %}
-
-        <tr>
-          <td>{{ item.id }}</td>
-          <td>{{ item.nombre }}</td>
-          <td>{{ item.horas }}</td>
-          <td>{{ item.entidadPromotora }}</td>
-          <td>{{ item.fechasDeRealizacion }}</td>
-          <td>{{ item.valoracion }}</td>
-          <td><a class="navbar-brand" href="{{ path('cursoActualizar', {'id':item.id}) }}">Editar Curso</a></td>
-         <td><a href="{{ path('eliminarCurso',{'id':item.id}) }}">Borrar</a></td>
-        </tr>
-    {% endfor %}
-        </tbody>
-      </table>
+    </head>
+    <body>
+      <div class="table-users">
+        <div class="header">Cursos</div>
+        <table cellspacing="0">
+          <tr>
+            <th>Nombre</th>
+            <th>Horas</th>
+            <th>Entidad promotora</th>
+            <th>Fechas</th>
+            <th>Valoracion</th>
+            <th>Acciones</th>
+          </tr>
+            {% for item in curso %}
+                <tr>
+                <td>{{item.nombre}}</td>
+                <td>{{item.horas}}</td>
+                <td>{{item.entidadPromotora}}</td>
+                <td>{{item.fechasDeRealizacion}}</td>
+                <td>{{item.valoracion}}</td>
+                <td>
+                  <a href="{{ path('eliminarCurso',{'id':item.id}) }}">Eliminar curso</a>
+                  <br>
+                  <a href="{{ path('cursoActualizar',{'id':item.id}) }}">Actualizar curso</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tr>
+        </table>
       </div>
-     </div>
-    </div>
-  </div>
-  <br>
-  </body>
-</html>
+    </body>
+  </html>
 {% endblock %}
