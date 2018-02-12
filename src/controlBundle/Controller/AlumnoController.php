@@ -107,6 +107,6 @@ class AlumnoController extends Controller
       $eliminar = $db ->getRepository(alumno::class)->find($id);
       $db->remove($eliminar);
       $db->flush();
-        return $this->redirectToRoute('listaalumnos');
+        return $this->redirectToRoute('listaAlumnosActivos');
     }
 }

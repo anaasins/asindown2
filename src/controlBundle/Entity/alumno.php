@@ -318,7 +318,7 @@ class alumno
 
     //RELACIONES
    /**
-     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="alumno")
+     * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="alumno", cascade={"remove"})
      */
     protected $alumnoCursos;
     public function __construct()

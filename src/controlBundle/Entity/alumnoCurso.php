@@ -22,12 +22,12 @@ class alumnoCurso
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="curso", inversedBy="cursoAlumnos")
+     * @ORM\ManyToOne(targetEntity="curso", inversedBy="cursoAlumnos", cascade={"remove"})
      * @ORM\JoinColumn(name="cursoAlumno_id", referencedColumnName="id")
      */
     protected $curso;
     /**
-     * @ORM\ManyToOne(targetEntity="alumno", inversedBy="alumnoCursos")
+     * @ORM\ManyToOne(targetEntity="alumno", inversedBy="alumnoCursos", cascade={"remove"})
      * @ORM\JoinColumn(name="alumnoCurso_id", referencedColumnName="id")
      */
     protected $alumno;
