@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block historial %}
 <br><br><br>
   <div class="content-wrapper">
@@ -9,62 +8,59 @@
           <div class="text-left">
             <div class="row">
               <div class="col-md-9">
-                <h1>Ana Asins</h1><br>
+                <h1>{{ alumnoID.nombre }}</h1><br>
                 <img src="{{asset('img/cara.png')}}" alt="Foto del alumno" width="30%"><br>
                 <div class="row">
                   <div class="col-md-6"><br>
-                    <h5>Nombre:</h5>
-                    <h5>Apellidos:</h5>
-                    <h5>Fecha de Nacimiento:</h5>
-                    <h5>Dni:</h5>
-                    <h5>Localidad:</h5>
-                    <h5>Código postal:</h5>
-                    <h5>Direccion:</h5>
-                    <h5>Teléfono de Casa:</h5>
-                    <h5>Telefono 2:</h5>
-                    <h5>Móvil:</h5>
-                    <h5>Nombre padre:</h5>
-                    <h5>Apellidos padre:</h5>
-                    <h5>Direccion padre:</h5>
-                    <h5>Telf. Trabajo padre:</h5>
-                    <h5>Movil padre:</h5>
-                    <h5>Profesion padre:</h5>
-                    <h5>Dni padre:</h5>
-                    <h5>Correo padre:</h5>
-                    <h5>Nombre madre:</h5>
-                    <h5>Apellidos madre:</h5>
+                    <h5>Nombre:  {{ alumnoID.nombre }}</h5>
+                    <h5>Apellidos:  {{ alumnoID.apellidos }}</h5>
+                    <h5>Fecha de Nacimiento: {{ alumnoID.fechaNacimiento|date }}</h5>
+                    <h5>Dni: {{ alumnoID.dni }}</h5>
+                    <h5>Localidad: {{ alumnoID.localidad }}</h5>
+                    <h5>Código postal: {{ alumnoID.codigoPostal }}</h5>
+                    <h5>Direccion: {{ alumnoID.direccion }}</h5>
+                    <h5>Teléfono de Casa: {{ alumnoID.telfCasa }}</h5>
+                    <h5>Telefono 2: {{ alumnoID.telf2 }}</h5>
+                    <h5>Móvil: {{ alumnoID.movil }}</h5>
+                    <h5>Nombre padre{{ alumnoID.nombrePadre }}: </h5>
+                    <h5>Apellidos padre: {{ alumnoID.apellidosPadre }}</h5>
+                    <h5>Direccion padre: {{ alumnoID.direccionPadre }}</h5>
+                    <h5>Telf. Trabajo padre: {{ alumnoID.telfTrabajoPadre }}</h5>
+                    <h5>Movil padre: {{ alumnoID.movilPadre }}</h5>
+                    <h5>Profesion padre: {{ alumnoID.profesionPadre }}</h5>
+                    <h5>Dni padre: {{ alumnoID.dniPadre }}</h5>
+                    <h5>Correo padre: {{ alumnoID.correoPadre }}</h5>
+                    <h5>Nombre madre: {{ alumnoID.nombreMadre }}</h5>
+                    <h5>Apellidos madre: {{ alumnoID.apellidosMadre }}</h5>
                   </div>
                   <div class="col-md-6"><br>
-                    <h5>Direccion madre:</h5>
-                    <h5>Tlf. Trabajo madre:</h5>
-                    <h5>Movil madre:</h5>
-                    <h5>Profesion madre:</h5>
-                    <h5>Fecha nacimiento madre:</h5>
-                    <h5>Dni madre:</h5>
-                    <h5>Correo madre:</h5>
-                    <h5>Diagnostico:</h5>
-                    <h5>Fecha alta:</h5>
-                    <h5>Fecha baja:</h5>
-                    <h5>Autorizacion imagen:</h5>
-                    <h5>Consentimiento tlf:</h5>
-                    <h5>Consentimiento tlf numero:</h5>
-                    <h5>Observaciones:</h5>
-                    <h5>Foto usuario:</h5>
-                    <h5>Renovacion servef:</h5>
-                    <h5>Centro acedémico anterior:</h5>
-                    <h5>Inscripcion Servef:</h5>
-                    <h5>Informe Psicopedagógico:</h5>
-                    <h5>Documentos matrícula:</h5>
-
+                    <h5>Direccion madre:  {{ alumnoID.direccionMadre }}</h5>
+                    <h5>Movil madre:  {{ alumnoID.movilMadre }}</h5>
+                    <h5>Tlf. Trabajo madre:  {{ alumnoID.telfTrabajoMadre }}</h5>
+                    <h5>Profesion madre:  {{ alumnoID.profesionMadre }}</h5>
+                    <h5>Fecha nacimiento madre: {{ alumnoID.fechaNacMadre|date }}</h5>
+                    <h5>Dni madre: {{ alumnoID.dniMadre }}</h5>
+                    <h5>Correo madre: {{ alumnoID.correoMadre }}</h5>
+                    <h5>Diagnostico: {{ alumnoID.diagnostico }}</h5>
+                    <h5>Fecha alta: {{ alumnoID.fechaAlta|date }}</h5>
+                    <h5>Fecha baja: {{ alumnoID.fechaBaja|date }}</h5>
+                    <h5>Autorizacion imagen: {{ alumnoID.autorizacionImagen }}</h5>
+                    <h5>Consentimiento tlf: {{ alumnoID.consentimientoTelf }}</h5>
+                    <h5>Consentimiento tlf numero: {{ alumnoID.consentimientoTelfNumero }}</h5>
+                    <h5>Observaciones: {{ alumnoID.observaciones }}</h5>
+                    <h5>Foto usuario: {{ alumnoID.fotoUsuario }}</h5>
+                    <h5>Renovacion servef: {{ alumnoID.renovServef }}</h5>
+                    <h5>Centro acedémico anterior: {{ alumnoID.centroAcademicoAnterior }}</h5>
+                    <h5>Inscripcion Servef: {{ alumnoID.inscripcionServef }}</h5>
+                    <h5>Informe Psicopedagógico: {{ alumnoID.informePsico }}</h5>
+                    <h5>Documentos matrícula: {{ alumnoID.documentosMatricula }}</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-
   </div>
 {% endblock %}

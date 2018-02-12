@@ -26,34 +26,7 @@
                 <td>{{alumnos.fechaNacimiento|date('d-m-Y')}}</td>
                 <td>{{alumnos.dni}}</td>
                 <td>{{alumnos.localidad}}</td>
-                <td>
-                  <i class="fas fa-plus-square"></i>
-                  <i class="fas fa-trash-alt"></i>
-                  <i class="fas fa-edit"> </i>
-                    <!-- Button trigger modal -->
-                  <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" href="{{ path('alumnoid',{'id':alumnos.id}) }}" >
-                    Mostrar más datos
-                  </a>
-                  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Alumno</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                        
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  </i>
-                </td>
+                <td><a href="{{ path('alumnoid',{'id':alumnos.id}) }}">Mas Datos</a></td>
               </tr>
             {% endfor %}
           </tr>

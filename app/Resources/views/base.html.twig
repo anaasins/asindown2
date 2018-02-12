@@ -32,14 +32,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style=" background-color:#032578" >
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts" >
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio" >
               <a class="nav-link" href="{{ path ("login")}}">
                 <i class="fab fa-cloudsmith" style="color:white"></i>
                 <span class="nav-link-text" style="color: white">Inicio</span>
               </a>
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cursos">
               <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                 <i class="fab fa-accusoft" style="color:white"></i>
                 <span class="nav-link-text" style="color: white">Cursos</span>
@@ -53,19 +53,27 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-              <a class="nav-link" href="{{ path ("listaAlumnosActivos")}}">
-                <i class="fas fa-users" style="color:white"></i>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Alumnos">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+                <i class="fab fa-accusoft" style="color:white"></i>
                 <span class="nav-link-text" style="color: white">Alumnos</span>
               </a>
+              <ul class="sidenav-second-level collapse" id="collapseComponents2">
+                <li>
+                  <a href="{{ path ("listaAlumnosActivos")}}" style="color: white">Activo</a>
+                </li>
+                <li>
+                  <a href="{{ path ("listaAlumnosInactivos")}}" style="color: white">No activo</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Profesores">
               <a class="nav-link" href="{{ path ("listaprofesores")}}">
                 <i class="fas fa-user-secret"style="color:white"></i>
                 <span class="nav-link-text" style="color: white">Profesores</span>
               </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts" style="color:white">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios" style="color:white">
               <a class="nav-link" href="{{ path ("listausuarios")}}">
                 <i class="fas fa-user-secret" style="color:white"></i>
                 <span class="nav-link-text" style="color: white">Usuarios</span>

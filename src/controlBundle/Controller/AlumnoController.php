@@ -53,7 +53,7 @@ class AlumnoController extends Controller
             return $this->render('profesores/error.html.twig');
           }
           // hacer para que si esta vacio cuando llegue a id.twig
-          return $this->render('alumnos/tablaAlumno.html.twig',array("alumnoID"=>$alumno));
+          return $this->render('alumnos/historial.html.twig',array("alumnoID"=>$alumno));
       }
 
     /**
