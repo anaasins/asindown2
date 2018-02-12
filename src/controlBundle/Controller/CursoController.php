@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class CursoController extends Controller
 {
   /**
-  * @Route("/listarCursos", name="listarCursos")
+  * @Route("/varios/listarCursos", name="listarCursos")
   */
   public function listarCursos(Request $request)
   {
@@ -24,7 +24,7 @@ class CursoController extends Controller
   }
 
   /**
-   * @Route("/nuevoCurso", name="nuevoCurso")
+   * @Route("/admin/nuevoCurso", name="nuevoCurso")
    */
   public function nuevoCursoAction(Request $request)
   {
@@ -44,7 +44,7 @@ class CursoController extends Controller
   }
 
   /**
-  * @Route("/eliminarCurso/{id}", name="eliminarCurso")
+  * @Route("/admin/eliminarCurso/{id}", name="eliminarCurso")
   */
   public function eliminarCursoAction($id)
   {
@@ -63,7 +63,7 @@ class CursoController extends Controller
     }
 
      /**
-    * @Route("/cursoActualizar/{id}", name="cursoActualizar")
+    * @Route("/admin/cursoActualizar/{id}", name="cursoActualizar")
     */
     public function cursoActualizarAction(Request $request,$id)
     {

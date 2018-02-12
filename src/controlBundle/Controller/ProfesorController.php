@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ProfesorController extends Controller
 {
    /**
-   * @Route("profesor/listaprofesores", name="listaprofesores")
+   * @Route("/varios/listaprofesores", name="listaprofesores")
    */
   public function listaprofesores(Request $request)
   {
@@ -23,7 +23,7 @@ class ProfesorController extends Controller
       return $this->render('profesores/profesores.html.twig',array("prof"=>$prof));
   }
   /**
-  * @Route("/id/{id}", name="id")
+  * @Route("/varios/id/{id}", name="id")
   */
   public function idAction($id){
       $repository = $this->getDoctrine()->getRepository('controlBundle:profesor');
@@ -37,7 +37,7 @@ class ProfesorController extends Controller
     }
 
     /**
-     * @Route("admin/nuevoProfesor", name="nuevoProfesor")
+     * @Route("/admin/nuevoProfesor", name="nuevoProfesor")
      */
     public function nuevoProfesorAction(Request $request)
     {
@@ -57,7 +57,7 @@ class ProfesorController extends Controller
     }
 
     /**
-     * @Route("admin/editarProfesor/{id}" , name="editarProfesor")
+     * @Route("/admin/editarProfesor/{id}" , name="editarProfesor")
      */
     public function editarprofesorAction(Request $request, $id)
     {
@@ -78,7 +78,7 @@ class ProfesorController extends Controller
     }
 
     /**
-     * @Route("admin/eliminarprofesor/{id}", name="eliminarprofesor")
+     * @Route("/admin/eliminarprofesor/{id}", name="eliminarprofesor")
      */
     public function eliminarprofesorAction($id)
     {

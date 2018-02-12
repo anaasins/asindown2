@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class AlumnoController extends Controller
 {
     /**
-     * @Route("profesor/historial")
+     * @Route("/profesor/historial")
      */
     public function historialAction()
     {
@@ -19,7 +19,7 @@ class AlumnoController extends Controller
     }
 
     /**
-     * @Route("profesor/tabla" , name="listalumnos")
+     * @Route("/varios/tabla" , name="listalumnos")
      */
     public function tablaAction()
     {
@@ -30,7 +30,7 @@ class AlumnoController extends Controller
       return $this->render('alumnos/tablaAlumno.html.twig',array("alumno"=>$alumnos));
     }
     /**
-    * @Route("profesor/tabla/{id}", name="alumnoid")
+    * @Route("/varios/tabla/{id}", name="alumnoid")
     */
     public function alumnoidAction($id){
         $repository = $this->getDoctrine()->getRepository(alumno::class);
@@ -44,7 +44,7 @@ class AlumnoController extends Controller
       }
 
     /**
-     * @Route("/nuevoAlumno", name="nuevoAlumno")
+     * @Route("/admin/nuevoAlumno", name="nuevoAlumno")
      */
     public function nuevoAlumnoAction(Request $request)
     {
@@ -64,7 +64,7 @@ class AlumnoController extends Controller
     }
 
     /**
-     * @Route("admin/editarAlumno/{id}" , name="editarAlumno")
+     * @Route("/admin/editarAlumno/{id}" , name="editarAlumno")
      */
     public function editarAlumnoAction(Request $request, $id)
     {
@@ -86,7 +86,7 @@ class AlumnoController extends Controller
     }
 
     /**
-     * @Route("admin/eliminarAlumno/{id}", name="eliminarAlumno")
+     * @Route("/admin/eliminarAlumno/{id}", name="eliminarAlumno")
      */
     public function eliminarAlumnoAction($id)
     {

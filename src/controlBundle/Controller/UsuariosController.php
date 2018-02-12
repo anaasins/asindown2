@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class UsuariosController extends Controller
 {
   /**
-   * @Route("/admin/listausuarios", name="listausuarios")
+   * @Route("/varios/listausuarios", name="listausuarios")
    */
 
   public function listausuarios(Request $request)
