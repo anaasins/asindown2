@@ -1,3 +1,4 @@
+
 {% block formulario %}
  <link rel="stylesheet" href="{{ asset('css/formularios.css') }}" />
  <!-- Bootstrap core CSS-->
@@ -9,45 +10,13 @@
  <!-- Custom styles for this template-->
  <link href="{{ asset ('css/sb-admin.css') }}" rel="stylesheet">
  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
- <style media="screen">
-   body{
-     background-image:  url('img/asindown_login.jpg');
-
-     /* Image is centered vertically and horizontally at all times */
-     background-position: center center;
-
-     /* Image doesn't repeat */
-     background-repeat: no-repeat;
-
-     /* Makes the image fixed in the viewport so that it doesn't move when
-        the content height is greater than the image height */
-     background-attachment: fixed;
-
-     /* This is what makes the background image rescale based on its container's size */
-     background-size: cover;
-
-     /* Pick a solid background color that will be displayed while the background image is loading */
-     background-color:#464646;
-
-     /* SHORTHAND CSS NOTATION
-      * background: url(background-photo.jpg) center center cover no-repeat fixed;
-      */}
-      /* For mobile devices */
-      @media only screen and (max-width: 767px) {
-        body {
-          /* The file size of this background image is 93% smaller
-           * to improve page load speed on mobile internet connections */
-          background-image: url(img/asindown_login_mobile.png);
-        }
-      	}
- </style>
 <body>
   {% if error %}
       <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
   {% endif %}
 
   <div id="formulario">
-    <img src="img/LogoAlto_SINFONDO.png" id="logo" height="185px" width="280px">
+    <img src="img/LogoAlto.jpg" id="logo" height="185px" width="280px">
     <div class="contenedor">
       <div class="card card-login mx-auto mt-5">
         <div class="card-header">Formulario</div>
