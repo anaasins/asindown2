@@ -45,7 +45,7 @@ class profesor
 
     //RELACIONES
    /**
-     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="profesor")
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="profesor", cascade={"remove"})
      */
     protected $profesorCursos;
     public function __construct()

@@ -65,7 +65,7 @@ class curso
 
 
     /**
-     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="curso")
+     * @ORM\OneToMany(targetEntity="profesorCurso", mappedBy="curso", cascade={"remove"})
      *
      */
     protected $cursoProfesores;
