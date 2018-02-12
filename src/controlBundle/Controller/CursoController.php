@@ -48,18 +48,18 @@ class CursoController extends Controller
   */
   public function eliminarCursoAction($id)
   {
-            $DB = $this->getDoctrine()->getManager();
+      $DB = $this->getDoctrine()->getManager();
 
-            $eliminar = $DB->getRepository('controlBundle:curso')->find($id);
+      $eliminar = $DB->getRepository('controlBundle:curso')->find($id);
 
-            if (!$eliminar) {
-                // throw $this->createNotFoundException('No se ha encontrado el id: '.$id);
-                return $this->render('controlBundle:cursos:error.html.twig');
-            }
-            $DB->remove($eliminar);
-            $DB->flush();
+      if (!$eliminar) {
+          // throw $this->createNotFoundException('No se ha encontrado el id: '.$id);
+          return $this->render('controlBundle:cursos:error.html.twig');
+      }
+      $DB->remove($eliminar);
+      $DB->flush();
 
-        return $this->redirectToRoute('listarCursos');
+      return $this->redirectToRoute('listarCursos');
     }
 
      /**
@@ -92,14 +92,5 @@ class CursoController extends Controller
     {
         return $this->render('controlBundle:cursos:error.html.twig');
     }
-
-
-
-
-
-
-
-
-
 
 }
