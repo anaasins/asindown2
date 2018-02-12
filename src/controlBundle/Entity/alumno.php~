@@ -25,35 +25,35 @@ class alumno
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidos", type="string", length=255)
+     * @ORM\Column(name="apellidos", type="string", length=255, nullable=true)
      */
     private $apellidos;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaNacimiento", type="date")
+     * @ORM\Column(name="fechaNacimiento", type="date", nullable=true)
      */
     private $fechaNacimiento;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dni", type="string", length=255)
+     * @ORM\Column(name="dni", type="string", length=255, nullable=true)
      */
     private $dni;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="localidad", type="string", length=255)
+     * @ORM\Column(name="localidad", type="string", length=255, nullable=true)
      */
     private $localidad;
 
@@ -228,7 +228,7 @@ class alumno
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaAlta", type="date")
+     * @ORM\Column(name="fechaAlta", type="date", nullable=true)
      */
     private $fechaAlta;
 
@@ -310,11 +310,11 @@ class alumno
     private $documentosMatricula;
 
     /**
-     * @var historialActuaciones[]|ArrayCollection
+     * @var bool
      *
-     * @ORM\OneToMany(targetEntity="historialActuaciones", mappedBy="alumnosAct",cascade={"all"}, orphanRemoval=true)
+     * @ORM\Column(name="activo", type="boolean", nullable=true)
      */
-    protected $cursosAct;
+    private $activo;
 
     //RELACIONES
    /**
@@ -323,7 +323,6 @@ class alumno
     protected $alumnoCursos;
     public function __construct()
     {
-        $this->cursosAct = new ArrayCollection();
         $this->alumnoCursos = new ArrayCollection();
     }
 
@@ -1323,36 +1322,36 @@ class alumno
     }
 
     /**
-     * Add cursosAct
+     * Add alumnoCurso
      *
-     * @param \controlBundle\Entity\historialActuaciones $cursosAct
+     * @param \controlBundle\Entity\alumnoCurso $alumnoCurso
      *
      * @return alumno
      */
-    public function addCursosAct(\controlBundle\Entity\historialActuaciones $cursosAct)
+    public function addAlumnoCurso(\controlBundle\Entity\alumnoCurso $alumnoCurso)
     {
-        $this->cursosAct[] = $cursosAct;
+        $this->alumnoCursos[] = $alumnoCurso;
 
         return $this;
     }
 
     /**
-     * Remove cursosAct
+     * Remove alumnoCurso
      *
-     * @param \controlBundle\Entity\historialActuaciones $cursosAct
+     * @param \controlBundle\Entity\alumnoCurso $alumnoCurso
      */
-    public function removeCursosAct(\controlBundle\Entity\historialActuaciones $cursosAct)
+    public function removeAlumnoCurso(\controlBundle\Entity\alumnoCurso $alumnoCurso)
     {
-        $this->cursosAct->removeElement($cursosAct);
+        $this->alumnoCursos->removeElement($alumnoCurso);
     }
 
     /**
-     * Get cursosAct
+     * Get alumnoCursos
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCursosAct()
+    public function getAlumnoCursos()
     {
-        return $this->cursosAct;
+        return $this->alumnoCursos;
     }
 }

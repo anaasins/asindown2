@@ -57,6 +57,7 @@ class alumnoType extends AbstractType
         ->add('inscripcionServef')
         ->add('informePsico')
         ->add('documentosMatricula')
+        ->add('activo')
         ->add('Registrar', SubmitType::class)
         ;
     }

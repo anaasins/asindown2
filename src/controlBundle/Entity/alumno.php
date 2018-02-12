@@ -309,6 +309,13 @@ class alumno
      */
     private $documentosMatricula;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="activo", type="boolean", nullable=true)
+     */
+    private $activo;
+
     //RELACIONES
    /**
      * @ORM\OneToMany(targetEntity="alumnoCurso", mappedBy="alumno")
@@ -1346,5 +1353,29 @@ class alumno
     public function getAlumnoCursos()
     {
         return $this->alumnoCursos;
+    }
+
+    /**
+     * Set activo
+     *
+     * @param boolean $activo
+     *
+     * @return alumno
+     */
+    public function setActivo($activo)
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
+
+    /**
+     * Get activo
+     *
+     * @return boolean
+     */
+    public function getActivo()
+    {
+        return $this->activo;
     }
 }
