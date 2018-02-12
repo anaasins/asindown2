@@ -2,12 +2,16 @@
 {% block listprof %}
 <br><br><br><br>
 <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
+<script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
 <!DOCTYPE html>
 
 <body>
+  <div id="buscador">
+    Buscar:<input id="searchTerm" type="text" onkeyup="doSearch()"/>
+  </div>
   <div class="table-users">
    <div class="header">Profesores</div>
-   <table cellspacing="0">
+   <table cellspacing="0"id="regTable">
      <tr>
        <th>Id</th>
        <th>Nombre</th>

@@ -4,19 +4,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    < <link rel="stylesheet" href="{{ asset ('css/sb-admin.css')}}" />
+    <link rel="stylesheet" href="{{ asset ('css/sb-admin.css')}}" />
+    <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
     <title></title>
   </head>
   <body>
     <br>
     <br>
     <!-- Example DataTables Card-->
-    <div class="card mb-3">
-      <div class="card-header">
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable"  cellspacing="0">
-            <thead>
+    <div id="buscador">
+      Buscar:<input id="searchTerm" type="text" onkeyup="doSearch()"/>
+    </div>
+    <div class="table-users">
+     <div class="header">Cursos</div>
+     <table cellspacing="0"id="regTable">
+       <tr>
       <tr>
         <th>Id</th>
         <th>Nombre</th>
@@ -27,7 +29,6 @@
         <th>Actualizar</th>
         <th>Elimina</th>
       </tr>
-       <tbody>
     {% for item in curso %}
 
         <tr>
@@ -41,13 +42,9 @@
          <td><a href="{{ path('eliminarCurso',{'id':item.id}) }}">Borrar</a></td>
         </tr>
     {% endfor %}
-        </tbody>
       </table>
       </div>
-     </div>
-    </div>
-  </div>
-  <br>
+     <br>
   </body>
 </html>
 {% endblock %}
