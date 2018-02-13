@@ -55,26 +55,29 @@
 		height:300px;
 		/*indicamos que el margen superior, es la mitad de la altura*/
 		margin-top:-50px;
-		padding:0px;
+		padding:5px;
 	}
+
+  .trans{
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  }
 
 	</style>
  </style>
 <body>
   <br><br><br>
-
-<div class="row">
-  <div class='centrar'>
-    <div class="col-md-4">
-      <a href="{{ path ("listaAlumnosActivos")}}" class="btn btn-primary btn-lg"><span class="fas fa-braille"></span> Alumnos</a>
-    </div>
-    <div class="col-md-4">
-      <a href="{{ path ("listarCursos")}}" class="btn btn-primary btn-lg"><span class="fas fa-braille"></span> Cursos</a>
-    </div>
-    <div class="col-md-4">
-      <a href="{{ path ("listaprofesores")}}" class="btn btn-primary btn-lg"><span class="fas fa-braille"></span>Profesores</a>
-    </div>
+  <div class="centrar">
+  <div class="trans">
+      <a href="{{ path ("listaAlumnosActivos")}}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-edit"></span> Alumnos</a>
+      <a href="{{ path ("listarCursos")}}" style="margin-left:10%;" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-edit"></span> Cursos</a>
+      <a href="{{ path ("listaprofesores")}}" style="margin-left:10%;" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-edit"></span> Profesores</a>
   </div>
-</div>
+  </div>
+    <br><br><br>
+      <br><br><br>
+        <br><br><br>
+    <img src="img/Logo_blanco.png" id="logo" height="25%" width="50%">
 </body>
 {% endblock %}
