@@ -10,15 +10,14 @@
               <div class="col-md-9">
 
                 <h1>{{ profeID.nombre }}</h1><br>
-                <br>
+                <img src="{{asset('img/cara.png')}}" alt="Foto del alumno" width="30%"><br>
+                <button type="button" name="button" style="margin-left:80%;margin-top: 22px;background-color: #007bff;  border-color: #007bff;white-space: nowrap;  line-height: 1.5;border-radius: .3rem;"><a href='{{ path('nuevoProfesorCursos',{'id':profeID.id}) }}'style="color: #f5f5f5;">Añadir a Curso</a></button>
                 <div class="row">
                   <div class="col-md-6"><br>
                     <h5>Nombre:  {{ profeID.nombre }}</h5>
                     <h5>Apellidos:  {{ profeID.apellidos }}</h5>
-                    <br>
-                    <img src="{{asset('img/cara.png')}}" alt="Foto del alumno" width="30%">
                   </div>
-        
+
                 </div>
               </div>
             </div>

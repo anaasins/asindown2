@@ -25,6 +25,7 @@
             <th>Valoracion</th>
             <th>Actualizar</th>
             <th>Eliminar</th>
+            <th>Matriculados</th>
           </tr>
           {% for item in curso %}
             <tr>
@@ -38,6 +39,9 @@
               </td>
               <td>
                 <a href="{{ path('eliminarCurso',{'id':item.id}) }}">Borrar</a>
+              </td>
+              <td>
+                <a href="{{path('gentePorCurso', {'id':item.id})}}">Matriculados</a>
               </td>
             </tr>
           {% endfor %}

@@ -90,9 +90,9 @@ class ProfesorController extends Controller
     }
 
     /**
-    * @Route("/varios/tablaProf/{id}", name="profesorid")
+    * @Route("/varios/historialProf/{id}", name="historialProf")
     */
-    public function profesoridAction($id){
+    public function historialProfAction($id){
         $repository = $this->getDoctrine()->getRepository(profesor::class);
         // find *id* pofe
         $prof = $repository->findOneById($id);
