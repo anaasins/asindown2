@@ -15,10 +15,21 @@ body * {
   padding: 1rem;
   text-align: center;
   text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
 }
 
 
-
+.buttonInsertar{
+  margin-left: 79%;
+  margin-top: 22px;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  white-space: nowrap;
+  line-height: 1.5;
+  border-radius: .3rem;
+}
 .table-users {
   border: 1px solid #327a81;
   border-radius: 10px;
