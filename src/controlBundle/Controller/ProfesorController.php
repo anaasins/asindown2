@@ -89,4 +89,18 @@ class ProfesorController extends Controller
         return $this->redirectToRoute('listaprofesores');
     }
 
+    /**
+    * @Route("/varios/tablaProf/{id}", name="profesorid")
+    */
+    public function profesoridAction($id){
+        $repository = $this->getDoctrine()->getRepository(profesor::class);
+        // find *id* pofe
+        $prof = $repository->findOneById($id);
+          if(!$prof){
+            return $this->render('profesores/error.html.twig');
+          }
+          // hacer para que si esta vacio cuando llegue a id.twig
+          return $this->render('profesores/historialProf.html.twig',array("profeID"=>$prof));
+      }
+
 }
