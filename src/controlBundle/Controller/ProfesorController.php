@@ -51,7 +51,7 @@ class ProfesorController extends Controller
         $em->persist($profesor);
         $em->flush();
 
-       return $this->redirectToRoute('index');
+       return $this->redirectToRoute('listaprofesores');
    }
         return $this->render('profesores/nuevoProfesor.html.twig', array('form'=>$form->createView()));
     }

@@ -17,6 +17,7 @@
        <th>Nombre</th>
        <th>Apellidos</th>
        <th>Foto</th>
+       <th>Acciones</th>
      </tr>
      {% for item in prof %}
      <tr>
@@ -24,7 +25,13 @@
        <td>{{ item.nombre }}</td>
        <td>{{ item.apellidos }}</td>
        <td><img height="250px" src="{{ asset('img/')}}{{item.foto}}"></td>
-        <td><a href="{{ path('id',{'id':item.id}) }}">Muestra</a></td>
+        <td>
+          <a href="{{ path('id',{'id':item.id}) }}">Muestra</a>
+          <br>
+          <a href="{{ path('editarProfesor',{'id':item.id}) }}">Editar</a>
+          <br>
+          <a href="{{ path('eliminarprofesor',{'id':item.id}) }}">Eliminar</a>
+        </td>
       {% endfor %}
      </tr>
    </table>
