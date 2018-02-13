@@ -12,6 +12,7 @@
       <div id="buscador">
         Buscar:<input id="searchTerm" type="text" onkeyup="doSearch()"/>
       </div>
+      <button class="buttonInsertar" type="button" name="button"><a style="color: white;" href='{{ path('nuevoCurso') }}'>Nuevo Curso</a></button>
       <div class="table-users">
         <div class="header">Cursos</div>
 
@@ -23,7 +24,7 @@
             <th>Fechas De Realizacion</th>
             <th>Valoracion</th>
             <th>Actualizar</th>
-            <th>Elimina</th>
+            <th>Eliminar</th>
           </tr>
           {% for item in curso %}
             <tr>
