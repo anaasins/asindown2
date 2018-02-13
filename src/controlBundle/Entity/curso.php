@@ -274,4 +274,8 @@ class curso
     {
         return $this->cursoProfesores;
     }
+
+    public function __toString(){
+      return $this->nombre;
+    }
 }

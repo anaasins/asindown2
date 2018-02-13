@@ -152,4 +152,5 @@ class alumnoCurso
     {
         return $this->alumno;
     }
+
 }

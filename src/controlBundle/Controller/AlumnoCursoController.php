@@ -40,4 +40,16 @@ class AlumnoCursoController extends Controller
       }
       return $this->render('alumnosCursos/nuevoAlumnoCurso.html.twig',array('form'=>$form->createView()));
     }
+
+    /**
+     * @Route("/varios/alumnosPorCurso" , name="alumnosPorCurso")
+     */
+    public function alumnosPorCursoActivos()
+    {
+      // replace this example code with whatever you need
+      $repository = $this->getDoctrine()->getRepository(alumnoCurso::class);
+      // find *all* alumnos
+      $alumnos = $repository->findByCurso(5);
+      return $this->render('alumnosCursos/tablaAlumnosCurso.html.twig',array("alumno"=>$alumnos));
+    }
 }

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block tabla %}
+<br><br><br><br>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
+    <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
+    <title></title>
+    </head>
+    <body>
+     <div id="buscador">
+       Buscar:<input id="searchTerm" type="text" onkeyup="doSearch()"/>
+     </div>
+      <div class="table-users">
+        <div class="header">Alumnos en el curso</div>
+
+        <table cellspacing="0" id="regTable">
+          <tr>
+            <th>Alumno</th>
+            <th>Matricula</th>
+            <th>Asignaturas aprobadas</th>
+          </tr>
+            {% for alumnos in alumno %}
+                <tr>
+                <td>{{alumnos.alumno}}</td>
+                <td>{{alumnos.asignaturasAprobadas}}</td>
+                <td>{{alumnos.matricula|date('d-m-Y')}}</td>
+              </tr>
+            {% endfor %}
+          </tr>
+        </table>
+      </div>
+    </body>
+  </html>
+{% endblock %}

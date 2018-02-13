@@ -22,12 +22,12 @@ class alumnoCurso
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="curso", inversedBy="cursoAlumnos")
+     * @ORM\ManyToOne(targetEntity="curso", inversedBy="cursoAlumnos", cascade={"remove"})
      * @ORM\JoinColumn(name="cursoAlumno_id", referencedColumnName="id")
      */
     protected $curso;
     /**
-     * @ORM\ManyToOne(targetEntity="alumno", inversedBy="alumnoCursos")
+     * @ORM\ManyToOne(targetEntity="alumno", inversedBy="alumnoCursos", cascade={"remove"})
      * @ORM\JoinColumn(name="alumnoCurso_id", referencedColumnName="id")
      */
     protected $alumno;
@@ -103,5 +103,57 @@ class alumnoCurso
     public function getAsignaturasAprobadas()
     {
         return $this->asignaturasAprobadas;
+    }
+
+    /**
+     * Set curso
+     *
+     * @param \controlBundle\Entity\curso $curso
+     *
+     * @return alumnoCurso
+     */
+    public function setCurso(\controlBundle\Entity\curso $curso = null)
+    {
+        $this->curso = $curso;
+
+        return $this;
+    }
+
+    /**
+     * Get curso
+     *
+     * @return \controlBundle\Entity\curso
+     */
+    public function getCurso()
+    {
+        return $this->curso;
+    }
+
+    /**
+     * Set alumno
+     *
+     * @param \controlBundle\Entity\alumno $alumno
+     *
+     * @return alumnoCurso
+     */
+    public function setAlumno(\controlBundle\Entity\alumno $alumno = null)
+    {
+        $this->alumno = $alumno;
+
+        return $this;
+    }
+
+    /**
+     * Get alumno
+     *
+     * @return \controlBundle\Entity\alumno
+     */
+    public function getAlumno()
+    {
+        return $this->alumno;
+    }
+
+    public function __toString() {
+      return $this->alumno;
     }
 }
