@@ -11,6 +11,34 @@
 <!-- Custom styles for this template-->
 <link href="{{ asset ('css/sb-admin.css') }}" rel="stylesheet">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<style media="screen">
+  #controlbundle_alumno_fechaNacimiento_year,#controlbundle_alumno_fechaNacPadre_year,#controlbundle_alumno_fechaNacMadre_year,#controlbundle_alumno_fechaAlta_year,#controlbundle_alumno_fechaBaja_year,#controlbundle_alumno_renovServef_year{
+    width: 85px;
+    height: 34px;
+    float: left;
+    margin-bottom: 10px;
+  }
+  #controlbundle_alumno_fechaNacimiento_month,#controlbundle_alumno_fechaNacPadre_month,#controlbundle_alumno_fechaNacMadre_month,#controlbundle_alumno_fechaAlta_month,#controlbundle_alumno_fechaBaja_month,#controlbundle_alumno_renovServef_month{
+    width: 89px;
+    height: 33px;
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 45%;
+  }
+  #controlbundle_alumno_fechaNacimiento_day,#controlbundle_alumno_fechaNacPadre_day,#controlbundle_alumno_fechaNacMadre_day,#controlbundle_alumno_fechaAlta_day,#controlbundle_alumno_fechaBaja_day,#controlbundle_alumno_renovServef_day{
+     width: 57px;
+    height: 33px;
+    margin-bottom: 6px;
+    margin-left: 220px;
+    position: absolute;
+  }
+  .card-body{
+    text-align: center;
+  }
+  #controlbundle_alumno_dni::before{
+    margin-right: 100px;
+  }
+</style>
 <body>
   <div id="formulario">
     <div class="contenedor">
@@ -18,7 +46,6 @@
         <div class="card-header">Nuevo alumno</div>
         <div class="card-body">
           {{ form_start(form) }}
-
           {{ form_widget(form) }}
           {{ form_end(form) }}
         </div>
