@@ -55,3 +55,4 @@ security:
         - { path: ^/admin,roles: ROLE_ADMIN}
         - { path: ^/profesor,roles: ROLE_PROFESOR}
         - { path: ^/varios,roles:[ROLE_ADMIN, ROLE_PROFESOR]}
+        - { path: ^/,roles:[ROLE_ADMIN, ROLE_PROFESOR]}
