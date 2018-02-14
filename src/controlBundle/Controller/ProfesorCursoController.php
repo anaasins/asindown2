@@ -34,9 +34,7 @@ class ProfesorCursoController extends Controller
         $em->persist($profesor);
         $em->flush();
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->redirectToRoute('listaprofesores');
       }
       return $this->render('profesorCurso/nuevoProfesorCurso.html.twig',array('form'=>$form->createView()));
     }
