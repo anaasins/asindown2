@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use controlBundle\Entity\curso;
 
 class alumnoCursoType extends AbstractType
@@ -21,8 +23,13 @@ class alumnoCursoType extends AbstractType
             'multiple' => false,
             'choice_label' => 'nombre'
         ))
-        ->add('matricula')
-        ->add('asignaturasAprobadas')
+        ->add('matricula',DateType::Class, array(
+                 'widget' => 'choice',
+                 'years' => range(date('Y'), date('Y')-20),
+                 'months' => range(date('m'), 12),
+                 'days' => range(date('d'), 31),
+               ))
+        ->add('asignaturasAprobadas', TextType::class)
         ;
     }
     /**

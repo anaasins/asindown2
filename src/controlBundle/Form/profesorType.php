@@ -16,8 +16,8 @@ class profesorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nombre')
-        ->add('apellidos')
+        ->add('nombre', TextType::class)
+        ->add('apellidos', TextType::class)
         ->add('foto')
         ->add('Registrar', SubmitType::class)
         ;

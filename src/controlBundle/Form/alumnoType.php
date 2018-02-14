@@ -7,6 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class alumnoType extends AbstractType
 {
@@ -16,43 +19,73 @@ class alumnoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nombre')
-        ->add('apellidos')
-        ->add('fechaNacimiento')
-        ->add('dni')
-        ->add('localidad')
-        ->add('codigoPostal')
-        ->add('direccion')
-        ->add('telfCasa')
-        ->add('telf2')
-        ->add('movil')
-        ->add('nombrePadre')
-        ->add('apellidosPadre')
-        ->add('direccionPadre')
-        ->add('telfTrabajoPadre')
-        ->add('movilPadre')
-        ->add('profesionPadre')
-        ->add('fechaNacPadre')
-        ->add('dniPadre')
-        ->add('correoPadre')
-        ->add('nombreMadre')
-        ->add('apellidosMadre')
-        ->add('direccionMadre')
-        ->add('telfTrabajoMadre')
-        ->add('movilMadre')
-        ->add('profesionMadre')
-        ->add('fechaNacMadre')
-        ->add('dniMadre')
-        ->add('correoMadre')
-        ->add('diagnostico')
-        ->add('fechaAlta')
-        ->add('fechaBaja')
+        ->add('nombre', TextType::class)
+        ->add('apellidos', TextType::class)
+        ->add('fechaNacimiento',DateType::Class, array(
+                 'widget' => 'choice',
+                 'years' => range(date('Y'), date('Y')-80),
+                 'months' => range(date('m'), 12),
+                 'days' => range(date('d'), 31),
+               ))
+        ->add('dni', TextType::class)
+        ->add('localidad', TextType::class)
+        ->add('codigoPostal', NumberType::class)
+        ->add('direccion', TextType::class)
+        ->add('telfCasa', NumberType::class)
+        ->add('telf2', NumberType::class)
+        ->add('movil', NumberType::class)
+        ->add('nombrePadre', TextType::class)
+        ->add('apellidosPadre', TextType::class)
+        ->add('direccionPadre', TextType::class)
+        ->add('telfTrabajoPadre', NumberType::class)
+        ->add('movilPadre', NumberType::class)
+        ->add('profesionPadre', TextType::class)
+        ->add('fechaNacPadre',DateType::Class, array(
+                 'widget' => 'choice',
+                 'years' => range(date('Y'), date('Y')-80),
+                 'months' => range(date('m'), 12),
+                 'days' => range(date('d'), 31),
+               ))
+        ->add('dniPadre', TextType::class)
+        ->add('correoPadre', EmailType::class)
+        ->add('nombreMadre', TextType::class)
+        ->add('apellidosMadre', TextType::class)
+        ->add('direccionMadre', TextType::class)
+        ->add('telfTrabajoMadre', NumberType::class)
+        ->add('movilMadre', NumberType::class)
+        ->add('profesionMadre', TextType::class)
+        ->add('fechaNacMadre',DateType::Class, array(
+                 'widget' => 'choice',
+                 'years' => range(date('Y'), date('Y')-80),
+                 'months' => range(date('m'), 12),
+                 'days' => range(date('d'), 31),
+               ))
+        ->add('dniMadre', TextType::class)
+        ->add('correoMadre', EmailType::class)
+        ->add('diagnostico', TextType::class)
+        ->add('fechaAlta',DateType::Class, array(
+                 'widget' => 'choice',
+                 'years' => range(date('Y'), date('Y')-80),
+                 'months' => range(date('m'), 12),
+                 'days' => range(date('d'), 31),
+               ))
+        ->add('fechaBaja',DateType::Class, array(
+                 'widget' => 'choice',
+                 'years' => range(date('Y'), date('Y')-80),
+                 'months' => range(date('m'), 12),
+                 'days' => range(date('d'), 31),
+               ))
         ->add('autorizacionImagen')
         ->add('consentimientoTelf')
         ->add('consentimientoTelfNumero')
-        ->add('observaciones')
+        ->add('observaciones', TextType::class)
         ->add('fotoUsuario')
-        ->add('renovServef')
+        ->add('renovServef',DateType::Class, array(
+                 'widget' => 'choice',
+                 'years' => range(date('Y'), date('Y')-80),
+                 'months' => range(date('m'), 12),
+                 'days' => range(date('d'), 31),
+               ))
         ->add('centroAcademicoAnterior')
         ->add('inscripcionServef')
         ->add('informePsico')

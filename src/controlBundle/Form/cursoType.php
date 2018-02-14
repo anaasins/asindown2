@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class cursoType extends AbstractType
 {
@@ -16,11 +18,11 @@ class cursoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nombre')
-        ->add('horas')
-        ->add('entidadPromotora')
+        ->add('nombre', TextType::class)
+        ->add('horas', NumberType::class)
+        ->add('entidadPromotora', TextType::class)
         ->add('fechasDeRealizacion')
-        ->add('valoracion')
+        ->add('valoracion', TextType::class)
         ->add('Registrar', SubmitType::class)
         ;
     }/**

@@ -4,6 +4,7 @@ namespace controlBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * alumno
@@ -26,6 +27,7 @@ class alumno
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $nombre;
 
@@ -33,6 +35,7 @@ class alumno
      * @var string
      *
      * @ORM\Column(name="apellidos", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $apellidos;
 
@@ -40,6 +43,8 @@ class alumno
      * @var \DateTime
      *
      * @ORM\Column(name="fechaNacimiento", type="date", nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Date()
      */
     private $fechaNacimiento;
 
@@ -47,6 +52,9 @@ class alumno
      * @var string
      *
      * @ORM\Column(name="dni", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Regex("/[0-9]{7,8}[A-Z]/")
+     *
      */
     private $dni;
 

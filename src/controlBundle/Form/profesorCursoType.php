@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use controlBundle\Entity\curso;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class profesorCursoType extends AbstractType
 {
@@ -21,7 +22,7 @@ class profesorCursoType extends AbstractType
             'multiple' => false,
             'choice_label' => 'nombre'
         ))
-        ->add('anyoImpartido')
+        ->add('anyoImpartido', NumberType::class)
         ;
     }/**
      * {@inheritdoc}
