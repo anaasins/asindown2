@@ -10,6 +10,11 @@
     <title></title>
   </head>
   <body>
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="alert alert-success" style="margin-left:40%">
+        {{ flashMessage }}
+    </div>
+    {% endfor %}
     <div id="buscador">
       Buscar:<input id="searchTerm" type="text" onkeyup="doSearch()"/>
     </div>

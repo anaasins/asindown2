@@ -37,7 +37,6 @@ class usuariosType extends AbstractType
             ),
         ))
     ->add('Insert',SubmitType::class);
-
     }
     /**
      * {@inheritdoc}

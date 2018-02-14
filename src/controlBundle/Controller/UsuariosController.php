@@ -89,11 +89,13 @@ public function registroAction(Request $request)
         $em = $this->getDoctrine()->getManager();
         $em->persist($usuario);
         $em->flush();
-
         // ... do any other work - like sending them an email, etc
         // maybe set a "flash" success message for the user
-
-        return new Response("Usuario Registrado correctamente");
+        $this->get('session')->getFlashBag()->add(
+        'notice',
+        'Registro Correcto'
+        );
+        return new RedirectResponse($this->generateUrl('listausuarios'));;
     }
 
     return $this->render(
