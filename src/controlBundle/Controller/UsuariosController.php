@@ -50,21 +50,13 @@ class UsuariosController extends Controller
    /**
     * @Route("/admin/borrarUser/{id}",name="borrarUser")
     */
-   public function borrarFormtop100( Request $request,$id)
+   public function borrarUser100( Request $request,$id)
    {
-     $usuario = $this->getDoctrine()->getRepository('controlBundle:usuarios')->find($id);
-     $form=$this->createForm(usuariosDeleteInsertType::Class, $usuario);
-     $form->handleRequest($request);
-
-     if ($form->isSubmitted() && $form->isValid())
-        {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($usuario);
-            $em->flush();
-            //Redirecciona
-            return new RedirectResponse($this->generateUrl('listausuarios'));;
-        }
-          return $this->render("usuarios/formulario.html.twig", array('form'=>$form->createView() ));
+          $em=$this->getDoctrine()->getManager();
+          $eliminar = $em ->getRepository(usuarios::class)->find($id);
+          $em->remove($eliminar);
+          $em->flush();
+            return $this->redirectToRoute('listausuarios');;
     }
   /**
    * @Route("/registro", name="registro")
