@@ -64,12 +64,21 @@
                 <span class="nav-link-text" style="color: white">Profesores</span>
               </a>
             </li>
+            {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios" style="color:white">
               <a class="nav-link" href="{{ path ("listausuarios")}}">
                 <i class="fas fa-user-secret" style="color:white"></i>
                 <span class="nav-link-text" style="color: white">Usuarios</span>
               </a>
             </li>
+            {% elseif is_granted('ROLE_PROFESOR')%}
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios" style="color:white; visibility: hidden;">
+              <a class="nav-link" href="{{ path ("listausuarios")}}">
+                <i class="fas fa-user-secret" style="color:white"></i>
+                <span class="nav-link-text" style="color: white">Usuarios</span>
+              </a>
+            </li>
+            {% endif %}
           </ul>
           <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">

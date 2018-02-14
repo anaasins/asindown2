@@ -12,7 +12,11 @@
      <div id="buscador">
        Buscar:<input id="searchTerm" type="text" onkeyup="doSearch()"/>
      </div>
-     <button class="buttonInsertar" type="button" name="button"><a style="color: white;" href='{{ path('nuevoAlumno') }}'>Nuevo Alumno</a></button>
+     {% if is_granted('ROLE_ADMIN') %}
+        <button class="buttonInsertar" type="button" name="button"><a style="color: white;" href='{{ path('nuevoAlumno') }}'>Nuevo Alumno</a></button>
+     {% elseif is_granted('ROLE_PROFESOR') %}
+        <button class="buttonInsertar" style="display:none;"type="button" name="button"><a style="color: white;" href='{{ path('nuevoAlumno') }}'>Nuevo Alumno</a></button>
+     {% endif %}
       <div class="table-users">
         <div class="header">Alumnos</div>
         <table cellspacing="0" id="regTable">
@@ -23,8 +27,13 @@
             <th>DNI</th>
             <th>Localidad</th>
             <th>Mostrar</th>
+            {% if is_granted('ROLE_ADMIN') %}
             <th>Borrar</th>
             <th>Actualizar</th>
+            {% elseif is_granted('ROLE_PROFESOR') %}
+            <th style="display:none;">Borrar</th>
+            <th style="display:none;">Actualizar</th>
+            {% endif %}
           </tr>
             {% for alumnos in alumno %}
                 <tr>
@@ -34,8 +43,13 @@
                 <td>{{alumnos.dni}}</td>
                 <td>{{alumnos.localidad}}</td>
                 <td><a href="{{ path('alumnoid',{'id':alumnos.id}) }}">Mas Datos</a></td>
+                {% if is_granted('ROLE_ADMIN') %}
                 <td><a class="delete"href="{{ path('eliminarAlumno',{'id':alumnos.id}) }}" />Borrar</a></td>
                 <td><a class="actu"href="{{ path('editarAlumno',{'id':alumnos.id}) }}" />Actualizar</a></td>
+                {% elseif is_granted('ROLE_PROFESOR') %}
+                <td style="display:none;"><a class="delete"  href="{{ path('eliminarAlumno',{'id':alumnos.id}) }}" />Borrar</a></td>
+                <td style="display:none;"><a class="actu"  href="{{ path('editarAlumno',{'id':alumnos.id}) }}" />Actualizar</a></td>
+                {% endif %}
               </tr>
             {% endfor %}
           </tr>

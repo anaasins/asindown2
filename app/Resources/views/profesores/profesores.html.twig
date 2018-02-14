@@ -9,7 +9,13 @@
   <div id="buscador">
     Buscar:<input id="searchTerm" type="text" onkeyup="doSearch()"/>
   </div>
-  <button class="buttonInsertar" type="button" name="button"><a style="color: white;" href='{{ path('nuevoProfesor') }}'>Nuevo Profesor</a></button>
+
+  {% if is_granted('ROLE_ADMIN') %}
+    <button class="buttonInsertar" type="button" name="button"><a style="color: white;" href='{{ path('nuevoProfesor') }}'>Nuevo Profesor</a></button>
+  {% elseif is_granted('ROLE_PROFESOR') %}
+    <button class="buttonInsertar" style="display: none;" type="button" name="button"><a style="color: white;" href='{{ path('nuevoProfesor') }}'>Nuevo Profesor</a></button>
+  {% endif %}
+
   <div class="table-users">
    <div class="header">Profesores</div>
    <table cellspacing="0"id="regTable">
@@ -17,16 +23,26 @@
        <th>Nombre</th>
        <th>Apellidos</th>
        <th>Mostrar</th>
+       {% if is_granted('ROLE_ADMIN') %}
        <th>Actualizar</th>
        <th>Eliminar</th>
+       {% elseif is_granted('ROLE_PROFESOR') %}
+       <th style="display: none;">Actualizar</th>
+       <th style="display: none;">Eliminar</th>
+       {% endif %}
      </tr>
      {% for item in prof %}
      <tr>
        <td>{{ item.nombre }}</td>
        <td>{{ item.apellidos }}</td>
         <td><a href="{{ path('historialProf',{'id':item.id}) }}">Más Datos</a></td>
+        {% if is_granted('ROLE_ADMIN') %}
         <td><a href="{{ path('editarProfesor',{'id':item.id}) }}">Actualizar</a></td>
         <td><a href="{{ path('eliminarprofesor',{'id':item.id}) }}">Eliminar</a></td>
+        {% elseif is_granted('ROLE_PROFESOR') %}
+        <td style="display: none;"><a href="{{ path('editarProfesor',{'id':item.id}) }}">Actualizar</a></td>
+        <td style="display: none;"><a href="{{ path('eliminarprofesor',{'id':item.id}) }}">Eliminar</a></td>
+        {% endif %}
       {% endfor %}
      </tr>
    </table>
