@@ -50,7 +50,7 @@
                     <h5>Consentimiento tlf numero: {{ alumnoID.consentimientoTelfNumero }}</h5>
                     <h5>Observaciones: {{ alumnoID.observaciones }}</h5>
                     <h5>Foto usuario: {{ alumnoID.fotoUsuario }}</h5>
-                    <h5>Renovacion servef: {{ alumnoID.renovServef }}</h5>
+                    <h5>Renovacion servef: {{ alumnoID.renovServef|date("d-m-Y")}}</h5>
                     <h5>Centro acedémico anterior: {{ alumnoID.centroAcademicoAnterior }}</h5>
                     <h5>Inscripcion Servef: {{ alumnoID.inscripcionServef }}</h5>
                     <h5>Informe Psicopedagógico: {{ alumnoID.informePsico }}</h5>
