@@ -32,7 +32,7 @@
             <th>Borrar</th>
             <th>Actualizar</th>
             {% elseif is_granted('ROLE_PROFESOR') %}
-            <th style="display:none;">Borrar</th>
+            <th style="display:none;">Desactivar</th>
             <th style="display:none;">Actualizar</th>
             {% endif %}
           </tr>
@@ -45,7 +45,7 @@
                 <td>{{alumnos.localidad}}</td>
                 <td><a href="{{ path('alumnoid',{'id':alumnos.id}) }}">Mas Datos</a></td>
                 {% if is_granted('ROLE_ADMIN') %}
-                <td><a class="delete"href="{{ path('eliminarAlumno',{'id':alumnos.id}) }}" />Borrar</a></td>
+                <td><a class="delete"href="{{ path('desactivarAlumno',{'id':alumnos.id}) }}" />Desactivar</a></td>
                 <td><a class="actu"href="{{ path('editarAlumno',{'id':alumnos.id}) }}" />Actualizar</a></td>
                 {% elseif is_granted('ROLE_PROFESOR') %}
                 <td style="display:none;"><a class="delete"  href="{{ path('eliminarAlumno',{'id':alumnos.id}) }}" />Borrar</a></td>

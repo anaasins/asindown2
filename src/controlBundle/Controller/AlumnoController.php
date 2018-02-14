@@ -109,4 +109,18 @@ class AlumnoController extends Controller
       $db->flush();
         return $this->redirectToRoute('listaAlumnosActivos');
     }
+
+    /**
+     * @Route("/admin/desactivarAlumno/{id}", name="desactivarAlumno")
+     */
+    public function updateAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $alumno = $em->getRepository(alumno::class)->find($id);
+
+      $alumno->setActivo(false);
+      $em->flush();
+
+      return $this->redirectToRoute('listaAlumnosActivos');
+    }
 }
