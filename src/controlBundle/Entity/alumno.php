@@ -53,7 +53,6 @@ class alumno
      *
      * @ORM\Column(name="dni", type="string", length=255, nullable=true)
      * @Assert\NotBlank()
-     * @Assert\Regex("/[0-9]{7,8}[A-Z]/")
      *
      */
     private $dni;
