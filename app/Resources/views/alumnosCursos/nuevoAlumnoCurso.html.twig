@@ -1,5 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block formulario %}
+<link rel="stylesheet" href="{{ asset('css/registro.css') }}" />
+<!-- Bootstrap core CSS-->
+<link href="{{ asset ('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="{{ asset ('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="{{ asset ('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="{{ asset ('css/sb-admin.css') }}" rel="stylesheet">
+<link href="{{ asset ('css/formularios.css') }}" rel="stylesheet">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript">
@@ -28,48 +39,36 @@
       });
   });
   </script>
-  <style media="screen">
-  .centrar{
-    position: absolute;
-    /*nos posicionamos en el centro del navegador*/
-    top:50%;
-    left:50%;
-    /*determinamos una anchura*/
-    width:100%;
-    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-    margin-left:-350px;
-    /*determinamos una altura*/
-    height:100%;
-    /*indicamos que el margen superior, es la mitad de la altura*/
-    margin-top:-250px;
-    padding:5px;
-  }
-  </style>
+
 </head>
 <body>
-<div class="centrar">
-  {{ form_start(form) }}
-  {{ form_errors(form)}}
-  {{ form_row(form.nombre) }}
-  {{ form_row(form.apellidos) }}
-  <ul id="cursos-fields-list"
-      data-prototype="{{ form_widget(form.alumnoCursos.vars.prototype)|e }}"
-      data-widget-tags="{{ '<li></li>'|e }}">
-    {% for campoCurso in form.alumnoCursos %}
-      <li>
-      {{ form_errors(campoCurso) }}
-      {{ form_widget(campoCurso) }}
-      </li>
-    {% endfor %}
-  </ul>
-  <input type="submit" class="btn btn-primary" />
-  <br>
-  <a href="#"
-        class="add-another-collection-widget"
-        data-list="#cursos-fields-list">Añadir otro curso</a>
+    <div id="formulario">
+    <div class="contenedor">
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Nuevo alumno</div>
+              {{ form_start(form) }}
+              {{ form_errors(form)}}
+              {{ form_row(form.nombre) }}
+              {{ form_row(form.apellidos) }}
+              <ul id="cursos-fields-list"
+                  data-prototype="{{ form_widget(form.alumnoCursos.vars.prototype)|e }}"
+                  data-widget-tags="{{ '<li></li>'|e }}">
+                {% for campoCurso in form.alumnoCursos %}
+                  <li>
+                  {{ form_errors(campoCurso) }}
+                  {{ form_widget(campoCurso) }}
+                  </li>
+                {% endfor %}
+              </ul>
+              <input type="submit" class="btn btn-primary" />
+              <br>
+              <a href="#"
+                    class="add-another-collection-widget"
+                    data-list="#cursos-fields-list">Añadir otro curso</a>
 
-{{ form_end(form) }}
-</div>
-
+            {{ form_end(form) }}
+            </div>
+          </div>
+        </div>
 </body>
 {% endblock %}
