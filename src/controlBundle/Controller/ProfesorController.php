@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use controlBundle\Entity\profesor;
 use controlBundle\Form\profesorType;
+use controlBundle\Form\editarProfesorType;
 use Symfony\Component\HttpFoundation\Response;
 
 class ProfesorController extends Controller
@@ -39,21 +40,40 @@ class ProfesorController extends Controller
     /**
      * @Route("/admin/nuevoProfesor", name="nuevoProfesor")
      */
-    public function nuevoProfesorAction(Request $request)
+    public function nuevoProfesorAction(Request $request, $id=null)
     {
-      $profesores = new profesor();
+      $urlFoto="";
+      if($id==null){
+        $profesores = new profesor();
+      }else{
+        $em = $this->getDoctrine()->getManager();
+        $profesores = $em->getRepository(profesor::class)->find($id);
+        $urlFoto=$profesores->getFoto();
+        $profesores->setFoto(null);
+      }
       $form = $this->createForm(profesorType::class, $profesores);
-
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
-       $profesor = $form->getData();
+        $profesores = $form->getData();
+        // $file stores the uploaded PDF file
+        /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+        $fotoFile = $profesores->getFoto();
+        // Generate a unique name for the file before saving it
+        $fotoFileName = md5(uniqid()).'.'.$fotoFile->guessExtension();
+        // Move the file to the directory where brochures are stored
+        $fotoFile->move(
+            $this->getParameter('foto_directory'),
+            $fotoFileName
+        );
+        // Update the 'brochure' property to store the PDF file name
+        // instead of its contents
+        $profesores->setFoto($fotoFileName);
         $em = $this->getDoctrine()->getManager();
-        $em->persist($profesor);
+        $em->persist($profesores);
         $em->flush();
-
-       return $this->redirectToRoute('listaprofesores');
-   }
-        return $this->render('profesores/nuevoProfesor.html.twig', array('form'=>$form->createView()));
+        return $this->redirectToRoute('listaprofesores');
+      }
+      return $this->render('profesores/nuevoProfesor.html.twig',array('form'=>$form->createView(),'urlFoto'=>$urlFoto));
     }
 
     /**
@@ -63,7 +83,7 @@ class ProfesorController extends Controller
     {
       $profesor=$this->getDoctrine()->getRepository(profesor::class)->find($id);
 
-      $form=$this->createForm(profesorType::class, $profesor);
+      $form=$this->createForm(editarProfesorType::class, $profesor);
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
 

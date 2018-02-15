@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use controlBundle\Entity\alumno;
 use controlBundle\Form\alumnoType;
+use controlBundle\Form\editarAlumnoType;
 use Symfony\Component\HttpFoundation\Request;
 
 class AlumnoController extends Controller
@@ -90,7 +91,7 @@ class AlumnoController extends Controller
           $em = $this->getDoctrine()->getManager();
           $em->persist($alumnos);
           $em->flush();
-          return $this->redirectToRoute('index');
+          return $this->redirectToRoute('listaAlumnosActivos');
         }
         return $this->render('alumnos/nuevoAlumno.html.twig',array('form'=>$form->createView(),'urlFoto'=>$urlFoto));
       }
@@ -102,7 +103,7 @@ class AlumnoController extends Controller
     {
       $alumno=$this->getDoctrine()->getRepository(alumno::class)->find($id);
 
-      $form=$this->createForm(alumnoType::class, $alumno);
+      $form=$this->createForm(editarAlumnoType::class, $alumno);
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
 

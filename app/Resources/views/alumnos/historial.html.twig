@@ -14,13 +14,13 @@
             <div class="row">
               <div class="col-md-9">
                 <h1>{{ alumnoID.nombre }}</h1><br>
-                <img src="{{asset('img/cara.png')}}" alt="Foto del alumno" width="30%"><br>
+                <img src="{{asset('img/fotoUsuario/' ~ alumnoID.fotoUsuario)}}" alt="Foto del alumno" width="30%"><br>
                 <button type="button" name="button" style="margin-left:80%;margin-top: 22px;background-color: #007bff;  border-color: #007bff;white-space: nowrap;  line-height: 1.5;border-radius: .3rem;"><a href='{{ path('nuevoAlumnoCursos',{'id':alumnoID.id}) }}'style="color: #f5f5f5;">Añadir a Curso</a></button>
                 <div class="row">
                   <div class="col-md-6"><br>
                     <h5><span>Nombre:</span>  {{ alumnoID.nombre }}</h5>
                     <h5>Apellidos:  {{ alumnoID.apellidos }}</h5>
-                    <h5>Fecha de Nacimiento: {{ alumnoID.fechaNacimiento|date }}</h5>
+                    <h5>Fecha de Nacimiento: {{ alumnoID.fechaNacimiento|date('d-m-Y') }}</h5>
                     <h5>Dni: {{ alumnoID.dni }}</h5>
                     <h5>Localidad: {{ alumnoID.localidad }}</h5>
                     <h5>Código postal: {{ alumnoID.codigoPostal }}</h5>

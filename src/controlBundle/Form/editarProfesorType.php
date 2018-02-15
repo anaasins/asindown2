@@ -8,9 +8,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class profesorType extends AbstractType
+
+class editarProfesorType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -20,7 +20,6 @@ class profesorType extends AbstractType
         $builder
         ->add('nombre', TextType::class)
         ->add('apellidos', TextType::class)
-        ->add('foto', FileType::class)
         ->add('Registrar', SubmitType::class)
         ;
     }
