@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block historial %}
+<style media="screen">span{color: #032578;}</style>
 <br><br><br>
   <div class="content-wrapper">
     <div class="container">
@@ -14,8 +15,8 @@
                 <button type="button" name="button" style="margin-left:80%;margin-top: 22px;background-color: #007bff;  border-color: #007bff;white-space: nowrap;  line-height: 1.5;border-radius: .3rem;"><a href='{{ path('nuevoProfesorCursos',{'id':profeID.id}) }}'style="color: #f5f5f5;">Añadir a Curso</a></button>
                 <div class="row">
                   <div class="col-md-6"><br>
-                    <h5>Nombre:  {{ profeID.nombre }}</h5>
-                    <h5>Apellidos:  {{ profeID.apellidos }}</h5>
+                    <h5><span>Nombre: </span>{{ profeID.nombre }}</h5>
+                    <h5><span>Apellidos: </span>{{ profeID.apellidos }}</h5>
                   </div>
 
                 </div>
