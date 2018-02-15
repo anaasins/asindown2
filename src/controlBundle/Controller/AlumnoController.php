@@ -59,22 +59,41 @@ class AlumnoController extends Controller
     /**
      * @Route("/admin/nuevoAlumno", name="nuevoAlumno")
      */
-    public function nuevoAlumnoAction(Request $request)
-    {
-      $alumnos = new alumno();
-      $form = $this->createForm(alumnoType::class, $alumnos);
-
-      $form->handleRequest($request);
-      if ($form->isSubmitted() && $form->isValid()) {
-       $alumno = $form->getData();
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($alumno);
-        $em->flush();
-
-       return $this->redirectToRoute('listaAlumnosActivos');
-     }
-        return $this->render('alumnos/nuevoAlumno.html.twig', array('form'=>$form->createView()));
-    }
+     public function nuevoAlumnoAction(Request $request,$id=null)
+      {
+        $urlFoto="";
+        if($id==null){
+          $alumnos = new alumno();
+        }else{
+          $em = $this->getDoctrine()->getManager();
+          $alumnos = $em->getRepository(alumno::class)->find($id);
+          $urlFoto=$alumnos->getFotoUsuario();
+          $alumnos->setFotoUsuario(null);
+        }
+        $form = $this->createForm(alumnoType::class, $alumnos);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+          $alumnos = $form->getData();
+          // $file stores the uploaded PDF file
+          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+          $fotoFile = $alumnos->getFotoUsuario();
+          // Generate a unique name for the file before saving it
+          $fotoFileName = md5(uniqid()).'.'.$fotoFile->guessExtension();
+          // Move the file to the directory where brochures are stored
+          $fotoFile->move(
+              $this->getParameter('foto_directory'),
+              $fotoFileName
+          );
+          // Update the 'brochure' property to store the PDF file name
+          // instead of its contents
+          $alumnos->setFotoUsuario($fotoFileName);
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($alumnos);
+          $em->flush();
+          return $this->redirectToRoute('index');
+        }
+        return $this->render('alumnos/nuevoAlumno.html.twig',array('form'=>$form->createView(),'urlFoto'=>$urlFoto));
+      }
 
     /**
      * @Route("/admin/editarAlumno/{id}" , name="editarAlumno")

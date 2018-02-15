@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class alumnoType extends AbstractType
 {
@@ -80,7 +81,7 @@ class alumnoType extends AbstractType
         ->add('consentimientoTelf')
         ->add('consentimientoTelfNumero')
         ->add('observaciones', TextType::class)
-        ->add('fotoUsuario')
+        ->add('fotoUsuario', FileType::class)
         ->add('renovServef',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-80),
