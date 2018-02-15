@@ -6,6 +6,7 @@
       <meta charset="utf-8">
       <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}"/>
       <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/tablesorter.js')}}"></script>
       <title></title>
     </head>
     <body>
@@ -22,7 +23,7 @@
 
         <table cellspacing="0" id="regTable">
           <tr>
-            <th>Nombre</th>
+            <th onclick="sortTable(0)">Nombre</th>
             <th>Horas</th>
             <th>Entidad Promotora</th>
             <th>Fechas De Realizacion</th>

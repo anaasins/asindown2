@@ -3,6 +3,7 @@
 <br><br><br><br>
 <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
 <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/tablesorter.js')}}"></script>
 <!DOCTYPE html>
 
 <body>
@@ -20,8 +21,8 @@
    <div class="header">Profesores</div>
    <table cellspacing="0"id="regTable">
      <tr>
-       <th>Nombre</th>
-       <th>Apellidos</th>
+       <th onclick="sortTable(0)">Nombre</th>
+       <th onclick="sortTable(1)">Apellidos</th>
        <th>Mostrar</th>
        {% if is_granted('ROLE_ADMIN') %}
        <th>Actualizar</th>

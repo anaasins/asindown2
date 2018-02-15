@@ -38,7 +38,7 @@ class CursoController extends Controller
       $em->persist($curso);
       $em->flush();
 
-     return $this->redirectToRoute('index');
+     return $this->redirectToRoute('listarCursos');
  }
       return $this->render('cursos/nuevoCurso.html.twig', array('form'=>$form->createView()));
   }

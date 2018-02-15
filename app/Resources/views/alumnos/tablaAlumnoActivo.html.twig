@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
     <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
     <title></title>
+     <script type="text/javascript" src="{{asset('js/tablesorter.js')}}"></script>
     </head>
     <body>
      <div id="buscador">
@@ -21,21 +22,23 @@
         <div class="header">Alumnos</div>
 
         <table cellspacing="0" id="regTable">
-          <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Fecha Nac.</th>
-            <th>DNI</th>
-            <th>Localidad</th>
-            <th>Mostrar</th>
-            {% if is_granted('ROLE_ADMIN') %}
-            <th>Borrar</th>
-            <th>Actualizar</th>
-            {% elseif is_granted('ROLE_PROFESOR') %}
-            <th style="display:none;">Desactivar</th>
-            <th style="display:none;">Actualizar</th>
-            {% endif %}
-          </tr>
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)">Nombre</th>
+              <th onclick="sortTable(1)">Apellidos</th>
+              <th>Fecha Nac.</th>
+              <th>DNI</th>
+              <th>Localidad</th>
+              <th>Mostrar</th>
+              {% if is_granted('ROLE_ADMIN') %}
+              <th>Borrar</th>
+              <th>Actualizar</th>
+              {% elseif is_granted('ROLE_PROFESOR') %}
+              <th style="display:none;">Desactivar</th>
+              <th style="display:none;">Actualizar</th>
+              {% endif %}
+            </tr>
+          </thead>
             {% for alumnos in alumno %}
                 <tr>
                 <td>{{alumnos.nombre}}</td>
@@ -56,6 +59,6 @@
           </tr>
         </table>
       </div>
-    </body>
-  </html>
+
+
 {% endblock %}

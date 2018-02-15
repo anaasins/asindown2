@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
     <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/tablesorter.js')}}"></script>
     <title></title>
     </head>
     <body>
@@ -21,8 +22,8 @@
         <div class="header">Alumnos</div>
         <table cellspacing="0" id="regTable">
           <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
+            <th onclick="sortTable(0)">Nombre</th>
+            <th onclick="sortTable(1)">Apellidos</th>
             <th>Fecha Nac.</th>
             <th>DNI</th>
             <th>Localidad</th>
