@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{ asset ('css/estiloTablas.css')}}" />
     <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/tablesorter.js')}}"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title></title>
   </head>
   <body>
@@ -25,8 +24,8 @@
     <div class="header">Usuarios</div>
       <table cellspacing="0" id="regTable">
        <tr>
-         <th><span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"></span>Usuario</th>
-         <th><span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(1)"></span>Email</th>
+         <th><span class="fas fa-sort-alpha-up" onclick="sortTable(0)"></span>Usuario</th>
+         <th><span class="fas fa-sort-alpha-up" onclick="sortTable(1)"></span>Email</th>
          <th>Borrar</th>
          <th>Actualizar</th>
        </tr>
