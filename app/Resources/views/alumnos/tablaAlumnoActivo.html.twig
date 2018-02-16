@@ -8,6 +8,7 @@
     <script type="text/javascript" src="{{asset('js/buscador.js')}}"></script>
     <title></title>
      <script type="text/javascript" src="{{asset('js/tablesorter.js')}}"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
      <div id="buscador">
@@ -24,8 +25,8 @@
         <table cellspacing="0" id="regTable">
           <thead>
             <tr>
-              <th onclick="sortTable(0)">Nombre</th>
-              <th onclick="sortTable(1)">Apellidos</th>
+              <th><span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"></span>Nombre</th>
+              <th><span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(1)"></span>Apellidos</th>
               <th>Fecha Nac.</th>
               <th>DNI</th>
               <th>Localidad</th>
