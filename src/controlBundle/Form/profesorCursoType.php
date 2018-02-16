@@ -22,7 +22,9 @@ class profesorCursoType extends AbstractType
             'multiple' => false,
             'choice_label' => 'nombre'
         ))
-        ->add('anyoImpartido', NumberType::class)
+        ->add('anyoImpartido', NumberType::class, array(
+          'label' => 'Año impartido',
+        ))
         ;
     }/**
      * {@inheritdoc}
