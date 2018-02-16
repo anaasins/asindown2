@@ -36,9 +36,7 @@ class AlumnoCursoController extends Controller
         $em->persist($alumno);
         $em->flush();
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->redirectToRoute('listaAlumnosActivos');
       }
       return $this->render('alumnosCursos/nuevoAlumnoCurso.html.twig',array('form'=>$form->createView()));
     }

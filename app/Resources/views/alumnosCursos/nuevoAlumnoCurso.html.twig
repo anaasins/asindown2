@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block formulario %}
+<link rel="stylesheet" href="{{ asset('css/registro.css') }}" />
 <link href="{{ asset ('css/formularios.css') }}" rel="stylesheet">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <head>
@@ -30,36 +31,32 @@
       });
   });
   </script>
-
 </head>
 <body>
-    <div id="formulario">
+  <div id="formulario">
     <div class="contenedor">
         <div class="card card-login mx-auto mt-5">
             <div class="card-header">Nuevo alumno</div>
-              {{ form_start(form) }}
-              {{ form_errors(form)}}
-              {{ form_row(form.nombre) }}
-              {{ form_row(form.apellidos) }}
-              <ul id="cursos-fields-list"
-                  data-prototype="{{ form_widget(form.alumnoCursos.vars.prototype)|e }}"
-                  data-widget-tags="{{ '<li></li>'|e }}">
-                {% for campoCurso in form.alumnoCursos %}
-                  <li>
-                  {{ form_errors(campoCurso) }}
-                  {{ form_widget(campoCurso) }}
-                  </li>
-                {% endfor %}
-              </ul>
-              <input type="submit" class="btn btn-primary" />
-              <br>
-              <a href="#"
-                    class="add-another-collection-widget"
-                    data-list="#cursos-fields-list">Añadir otro curso</a>
-
-            {{ form_end(form) }}
-            </div>
-          </div>
-        </div>
-</body>
+            {{ form_start(form) }}
+            {{ form_errors(form)}}
+            {{ form_row(form.nombre) }}
+            {{ form_row(form.apellidos) }}
+            <ul id="cursos-fields-list"
+                data-prototype="{{ form_widget(form.alumnoCursos.vars.prototype)|e }}"
+                data-widget-tags="{{ '<li></li>'|e }}">
+              {% for campoCurso in form.alumnoCursos %}
+                <li>
+                {{ form_errors(campoCurso) }}
+                {{ form_widget(campoCurso) }}
+                </li>
+              {% endfor %}
+            </ul>
+            <input type="submit" class="btn btn-primary" />
+            <br>
+            <a href="#" class="add-another-collection-widget" data-list="#cursos-fields-list">Añadir otro curso</a>
+          {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+<body>
 {% endblock %}
