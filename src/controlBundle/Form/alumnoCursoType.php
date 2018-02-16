@@ -27,8 +27,6 @@ class alumnoCursoType extends AbstractType
         ->add('matricula',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-20),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
                ))
         ->add('asignaturasAprobadas', TextType::class)
         ;

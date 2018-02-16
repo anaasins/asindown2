@@ -25,8 +25,6 @@ class editarAlumnoType extends AbstractType
         ->add('fechaNacimiento',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-80),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
                ))
         ->add('dni', TextType::class)
         ->add('localidad', TextType::class)
@@ -44,8 +42,6 @@ class editarAlumnoType extends AbstractType
         ->add('fechaNacPadre',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-80),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
                ))
         ->add('dniPadre', TextType::class)
         ->add('correoPadre', EmailType::class)
@@ -58,8 +54,6 @@ class editarAlumnoType extends AbstractType
         ->add('fechaNacMadre',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-80),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
                ))
         ->add('dniMadre', TextType::class)
         ->add('correoMadre', EmailType::class)
@@ -67,14 +61,10 @@ class editarAlumnoType extends AbstractType
         ->add('fechaAlta',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-80),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
                ))
         ->add('fechaBaja',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-80),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
                ))
         ->add('autorizacionImagen')
         ->add('consentimientoTelf')
@@ -83,8 +73,6 @@ class editarAlumnoType extends AbstractType
         ->add('renovServef',DateType::Class, array(
                  'widget' => 'choice',
                  'years' => range(date('Y'), date('Y')-80),
-                 'months' => range(date('m'), 12),
-                 'days' => range(date('d'), 31),
                ))
         ->add('centroAcademicoAnterior')
         ->add('inscripcionServef')
